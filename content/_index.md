@@ -1,5 +1,5 @@
 ---
-title: "novel's smol blog"
+title: "novel's site"
 ---
 hi i am novel (つ b‿b つ)
 * I currently am a video game programming student at Humber College
