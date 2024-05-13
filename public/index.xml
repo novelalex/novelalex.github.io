@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>novel&#39;s blog</title>
+    <link>https://novelalex.com/</link>
+    <description>Recent content on novel&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>novelalex29@outlook.com (Novel Alex)</managingEditor>
+    <webMaster>novelalex29@outlook.com (Novel Alex)</webMaster>
+    <copyright>© 2024 Novel Alex</copyright>
+    <lastBuildDate>Mon, 13 May 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://novelalex.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello Blog!</title>
+      <link>https://novelalex.com/hello-blog/</link>
+      <pubDate>Mon, 13 May 2024 00:00:00 +0000</pubDate><author>novelalex29@outlook.com (Novel Alex)</author>
+      <guid>https://novelalex.com/hello-blog/</guid>
+      <description>This is my first blog page</description>
+      <content:encoded><![CDATA[<p>This is my first blog page</p>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>
