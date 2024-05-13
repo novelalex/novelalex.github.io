@@ -1,6 +1,6 @@
 baseURL = 'https://novelalex.com'
 languageCode = 'en'
-title = "novel's blog"
+title = "novel's site"
 theme = "hugo-simple"
 copyright = "© 2024 Novel Alex"
 
@@ -33,8 +33,8 @@ noClasses = true
 style = "catppuccin-mocha"
 
 [params]
-title = "novel's blog"
-description = "i am novel"
+title = "novel's site"
+description = "hi i am novel (つ b‿b つ)"
 favicon = "images/favicon.ico"
 dateFormat = "2006-01-02"
 hideMadeWithLine = false
