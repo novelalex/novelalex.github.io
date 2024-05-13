@@ -2,7 +2,7 @@
 title: "novel's site"
 ---
 hi i am novel (つ b‿b つ)
-* I currently am a video game programming student at Humber College
+* I am currently a video game programming student at Humber College
 * I make [youtube videos](https://www.youtube.com/@mrabiry/videos)
 * I make [music](https://www.youtube.com/watch?v=YFbU_HwXf7M&ab_channel=NovelAlex)
 
