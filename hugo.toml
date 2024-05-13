@@ -2,7 +2,7 @@ baseURL = 'https://novelalex.com'
 languageCode = 'en'
 title = "novel's blog"
 theme = "hugo-simple"
-copyright = "© 2024 Novel Boby Alex"
+copyright = "© 2024 Novel Alex"
 
 # Generate a nice robots.txt for SEO
 enableRobotsTXT = true
@@ -35,7 +35,7 @@ style = "catppuccin-mocha"
 [params]
 title = "novel's blog"
 description = "i am novel"
-favicon = "favicon.ico"
+favicon = "images/favicon.ico"
 dateFormat = "2006-01-02"
 hideMadeWithLine = false
 hideRSSLink = true
@@ -44,11 +44,11 @@ name = "Novel Alex"
 email = "novelalex29@outlook.com"
 
 [[menu.main]]
-name = "Home"
+name = "home"
 pageRef = "/"
 weight = 10
 [[menu.main]]
-name = "Blog"
+name = "blog"
 pageRef = "/blog"
 weight = 20
 
