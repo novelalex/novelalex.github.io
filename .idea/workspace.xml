@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2d1a154-bc78-4487-8cc6-a298d655bbc9" name="Changes" comment="Actually Fix Icon + a Home page2">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/blog/chess_and_fire/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/blog/chess_and_fire/index.md" afterDir="false" />
+    <list default="true" id="d2d1a154-bc78-4487-8cc6-a298d655bbc9" name="Changes" comment="I forgot to generate the html">
+      <change afterPath="$PROJECT_DIR$/assets/simple.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/hugo-simple" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hugo-simple" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,6 +47,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/Dev/Repos/novelalex.github.io/layouts",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -56,6 +57,10 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Dev\Repos\novelalex.github.io\layouts" />
+      <recent name="D:\Dev\Repos\novelalex.github.io\assets" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Dev\Repos\novelalex.github.io\static\images" />
     </key>
@@ -75,7 +80,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1715576565976</updated>
-      <workItem from="1715576567360" duration="8165000" />
+      <workItem from="1715576567360" duration="8375000" />
     </task>
     <task id="LOCAL-00001" summary="Start using HUGO :D">
       <option name="closed" value="true" />
@@ -117,7 +122,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715584715013</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Tesst">
+      <option name="closed" value="true" />
+      <created>1715584843898</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1715584843898</updated>
+    </task>
+    <task id="LOCAL-00007" summary="I forgot to generate the html">
+      <option name="closed" value="true" />
+      <created>1715584946964</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1715584946964</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,6 +151,8 @@
     <MESSAGE value="Try to fix icon" />
     <MESSAGE value="Actually Fix Icon + a Home page" />
     <MESSAGE value="Actually Fix Icon + a Home page2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Actually Fix Icon + a Home page2" />
+    <MESSAGE value="Tesst" />
+    <MESSAGE value="I forgot to generate the html" />
+    <option name="LAST_COMMIT_MESSAGE" value="I forgot to generate the html" />
   </component>
 </project>
