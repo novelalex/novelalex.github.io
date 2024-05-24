@@ -42,7 +42,7 @@
   /* Add a bit of transparency so light media isn't so glaring in dark mode */
   img,
   video {
-    opacity: 0.8;
+    opacity: 0.9;
   }
 }
 
@@ -576,6 +576,11 @@ figure > img,
 figure > picture > img {
   display: block;
   margin-inline: auto;
+}
+
+p > img {
+  display: block;
+  margin: 0 auto;
 }
 
 figcaption {

@@ -27,10 +27,10 @@ unsafe = true
 startLevel = 2
 endLevel = 3
 [markup.highlight]
-lineNos = true
+lineNos = false
 lineNumbersInTable = false
 noClasses = true
-style = "catppuccin-mocha"
+style = "hrdark"
 
 [params]
 title = "novel's site"
