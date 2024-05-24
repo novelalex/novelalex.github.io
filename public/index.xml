@@ -120,8 +120,8 @@ frame, and its width can be calculated by multiplying the width of a single fram
 </span></span><span style="display:flex;"><span>        (<span style="color:#58a1dd">in_img_width</span> <span style="color:#ff636f">*</span> <span style="color:#58a1dd">i</span> <span style="color:#ff636f">as</span> <span style="color:#ff636f">u32</span>) <span style="color:#ff636f">as</span> <span style="color:#ff636f">i64</span>, 
 </span></span><span style="display:flex;"><span>        <span style="color:#a6be9d">0</span>);
 </span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
-<p>Here&rsquo;s the hacky code I put together to clean up the filename. It is supposed to remove numbers from the end of the file
-name, it seems to do that, but I&rsquo;m still not very confident.</p>
+<p>Here&rsquo;s the code I put together to clean up the file name. It is supposed to remove numbers from the end of the file
+name, and I am about 80 percent sure that it does exactly what I want it to do.</p>
 
 
 
@@ -129,15 +129,15 @@ name, it seems to do that, but I&rsquo;m still not very confident.</p>
 
 
 <div class="highlight"><pre tabindex="0" style="color:#1d2432;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#ff636f">let</span> <span style="color:#58a1dd">out_name</span> <span style="color:#ff636f">=</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#ff636f">let</span> <span style="color:#58a1dd">file_name</span> <span style="color:#ff636f">=</span> <span style="color:#58a1dd">file_names</span>[<span style="color:#a6be9d">0</span>].<span style="color:#58a1dd">clone</span>();
-</span></span><span style="display:flex;"><span>        <span style="color:#ff636f">let</span> <span style="color:#58a1dd">file_name</span> <span style="color:#ff636f">=</span> <span style="color:#58a1dd">file_name</span>.<span style="color:#58a1dd">as_str</span>();
-</span></span><span style="display:flex;"><span>        <span style="color:#ff636f">let</span> <span style="color:#58a1dd">file_name</span> <span style="color:#ff636f">=</span> <span style="color:#58a1dd">file_name</span>
-</span></span><span style="display:flex;"><span>            .<span style="color:#58a1dd">rsplit</span>(<span style="color:#a6be9d">&#39;.&#39;</span>).<span style="color:#58a1dd">collect</span>::<span style="color:#ff636f">&lt;</span><span style="color:#58a1dd">Vec</span><span style="color:#ff636f">&lt;</span><span style="color:#58a1dd">_</span><span style="color:#ff636f">&gt;&gt;</span>()[<span style="color:#a6be9d">1</span>];
-</span></span><span style="display:flex;"><span>        <span style="color:#ff636f">let</span> <span style="color:#58a1dd">file_name</span> <span style="color:#ff636f">=</span> <span style="color:#58a1dd">file_name</span>
-</span></span><span style="display:flex;"><span>            .<span style="color:#58a1dd">trim_end_matches</span>(<span style="color:#ff636f">|</span><span style="color:#58a1dd">c</span>: <span style="color:#ff636f">char</span><span style="color:#ff636f">|</span> <span style="color:#58a1dd">c</span>.<span style="color:#58a1dd">is_ascii_digit</span>());
-</span></span><span style="display:flex;"><span>        <span style="color:#ff636f">let</span> <span style="color:#58a1dd">file_name</span> <span style="color:#ff636f">=</span> <span style="color:#58a1dd">format!</span>(<span style="color:#a6be9d">&#34;</span><span style="color:#a6be9d">{}</span><span style="color:#a6be9d">.png&#34;</span>, <span style="color:#58a1dd">file_name</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#58a1dd">file_name</span>
-</span></span><span style="display:flex;"><span>    };</span></span></code></pre></div>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff636f">let</span> <span style="color:#58a1dd">file_name</span> <span style="color:#ff636f">=</span> <span style="color:#58a1dd">file_names</span>[<span style="color:#a6be9d">0</span>].<span style="color:#58a1dd">clone</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#ff636f">let</span> <span style="color:#58a1dd">file_name</span> <span style="color:#ff636f">=</span> <span style="color:#58a1dd">file_name</span>.<span style="color:#58a1dd">as_str</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#ff636f">let</span> <span style="color:#58a1dd">file_name</span> <span style="color:#ff636f">=</span> <span style="color:#58a1dd">file_name</span>
+</span></span><span style="display:flex;"><span>        .<span style="color:#58a1dd">rsplit</span>(<span style="color:#a6be9d">&#39;.&#39;</span>).<span style="color:#58a1dd">collect</span>::<span style="color:#ff636f">&lt;</span><span style="color:#58a1dd">Vec</span><span style="color:#ff636f">&lt;</span><span style="color:#58a1dd">_</span><span style="color:#ff636f">&gt;&gt;</span>()[<span style="color:#a6be9d">1</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#ff636f">let</span> <span style="color:#58a1dd">file_name</span> <span style="color:#ff636f">=</span> <span style="color:#58a1dd">file_name</span>
+</span></span><span style="display:flex;"><span>        .<span style="color:#58a1dd">trim_end_matches</span>(<span style="color:#ff636f">|</span><span style="color:#58a1dd">c</span>: <span style="color:#ff636f">char</span><span style="color:#ff636f">|</span> <span style="color:#58a1dd">c</span>.<span style="color:#58a1dd">is_ascii_digit</span>());
+</span></span><span style="display:flex;"><span>    <span style="color:#ff636f">let</span> <span style="color:#58a1dd">file_name</span> <span style="color:#ff636f">=</span> <span style="color:#58a1dd">format!</span>(<span style="color:#a6be9d">&#34;</span><span style="color:#a6be9d">{}</span><span style="color:#a6be9d">.png&#34;</span>, <span style="color:#58a1dd">file_name</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#58a1dd">file_name</span>
+</span></span><span style="display:flex;"><span>};</span></span></code></pre></div>
 <p>Now I just have to save it.</p>
 
 
@@ -145,7 +145,7 @@ name, it seems to do that, but I&rsquo;m still not very confident.</p>
 
 
 
-<div class="highlight"><pre tabindex="0" style="color:#1d2432;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span>    <span style="color:#58a1dd">out_buffer</span>.<span style="color:#58a1dd">save</span>(<span style="color:#58a1dd">out_name</span>).<span style="color:#58a1dd">unwrap</span>();</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#1d2432;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#58a1dd">out_buffer</span>.<span style="color:#58a1dd">save</span>(<span style="color:#58a1dd">out_name</span>).<span style="color:#58a1dd">unwrap</span>();</span></span></code></pre></div>
 <p>And I can now very quickly make sprite sheets.</p>
 <p><img src="sprite-app-demo.gif" alt="A demo of file drag and drop with the file output"></p>
 <p>Here&rsquo;s the <a href="https://github.com/novelalex/quick-sprite-sheet">GitHub</a> page.</p>

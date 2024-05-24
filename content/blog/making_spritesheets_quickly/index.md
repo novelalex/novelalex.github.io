@@ -99,26 +99,26 @@ for (i, img) in imgs.into_iter().enumerate() {
 }
 ```
 
-Here's the hacky code I put together to clean up the filename. It is supposed to remove numbers from the end of the file
-name, it seems to do that, but I'm still not very confident.
+Here's the code I put together to clean up the file name. It is supposed to remove numbers from the end of the file
+name, and I am about 80 percent sure that it does exactly what I want it to do.
 
 ```rust 
 let out_name = {
-        let file_name = file_names[0].clone();
-        let file_name = file_name.as_str();
-        let file_name = file_name
-            .rsplit('.').collect::<Vec<_>>()[1];
-        let file_name = file_name
-            .trim_end_matches(|c: char| c.is_ascii_digit());
-        let file_name = format!("{}.png", file_name);
-        file_name
-    };
+    let file_name = file_names[0].clone();
+    let file_name = file_name.as_str();
+    let file_name = file_name
+        .rsplit('.').collect::<Vec<_>>()[1];
+    let file_name = file_name
+        .trim_end_matches(|c: char| c.is_ascii_digit());
+    let file_name = format!("{}.png", file_name);
+    file_name
+};
 ```
 
 Now I just have to save it.
 
 ```rust
-    out_buffer.save(out_name).unwrap();
+out_buffer.save(out_name).unwrap();
 ```
 
 And I can now very quickly make sprite sheets.
