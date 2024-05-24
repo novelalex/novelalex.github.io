@@ -23,7 +23,8 @@ it to me, I then import those images into Aseprite as an animation then I export
 finally import in into Godot.</p>
 <p><img src="grimIdle.png" alt="The output sprite sheet"></p>
 <hr>
-<p><img src="grim_idle.gif" alt="Grim Discount: A discount version of the grim reaper"></p>
+<p><img src="grim_idle.gif" alt="Grim Discount: A discount version of the grim reaper">
+Animation By Pictoco</p>
 <p>I want to be able to automate the whole Aseprite step, I want a program I can drag an image sequence into and have it
 spit out a sprite sheet.</p>
 <p>I&rsquo;ve had the <a href="https://tauri.app/">Tauri</a> framework on my radar for a while now, and now I have a reason to play around
