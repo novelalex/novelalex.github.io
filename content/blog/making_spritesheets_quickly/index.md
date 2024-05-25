@@ -115,7 +115,7 @@ let out_name = {
 };
 ```
 
-Now I just have to save it.
+Then I just have to save it.
 
 ```rust
 out_buffer.save(out_name).unwrap();
