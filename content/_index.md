@@ -10,7 +10,7 @@ you can find me on:
 * [twitter](https://twitter.com/NovelAlexicus)
 * [steam](https://steamcommunity.com/id/mrabiry/)
 * [github](https://github.com/novelalex)
-* [instagram](https://www.instagram.com/hiiamnovel/)
+* [cara](https://cara.app/novelicus/all)
 * [spotify](https://open.spotify.com/user/313wxxr7ocaxxtsbllxjmxschoj4?si=74c82756168e401d) and also [more spotify](https://open.spotify.com/artist/0RQhQSrMwHsYGj1BRPvZ8J?si=2_X0McW9QpivQDY33nnyOg)
 
 check out my [blog]({{<ref "blog">}}) while you're here :D
