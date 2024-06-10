@@ -12,6 +12,25 @@
     <lastBuildDate>Fri, 24 May 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://novelalex.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>a list of articles and quotes i like</title>
+      <link>https://novelalex.com/list_of_really_good_quotes/</link>
+      <pubDate>Fri, 24 May 2024 00:00:00 +0000</pubDate><author>novelalex29@outlook.com (Novel Alex)</author>
+      <guid>https://novelalex.com/list_of_really_good_quotes/</guid>
+      <description>&amp;ldquo;complexity very, very bad&amp;rdquo; - Carson Gross, The Grug Brained Developer
+&amp;ldquo;Is there anything you can do to let the code speak for itself instead of needing subtitles?&amp;rdquo; - Russ Olsen, Eloquent Ruby</description>
+      <content:encoded><![CDATA[<ul>
+<li>
+<p>&ldquo;complexity very, very bad&rdquo; <br>
+<em>- Carson Gross, <a href="https://grugbrain.dev/">The Grug Brained Developer</a></em></p>
+</li>
+<li>
+<p>&ldquo;Is there anything you can do to let the code speak for itself instead of needing subtitles?&rdquo; <br>
+<em>- Russ Olsen, Eloquent Ruby</em></p>
+</li>
+</ul>
+]]></content:encoded>
+    </item>
+    <item>
       <title>making spritesheets quickly</title>
       <link>https://novelalex.com/making_spritesheets_quickly/</link>
       <pubDate>Fri, 24 May 2024 00:00:00 +0000</pubDate><author>novelalex29@outlook.com (Novel Alex)</author>

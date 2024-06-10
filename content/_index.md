@@ -13,4 +13,5 @@ you can find me on:
 * [cara](https://cara.app/novelicus/all)
 * [spotify](https://open.spotify.com/user/313wxxr7ocaxxtsbllxjmxschoj4?si=74c82756168e401d) and also [more spotify](https://open.spotify.com/artist/0RQhQSrMwHsYGj1BRPvZ8J?si=2_X0McW9QpivQDY33nnyOg)
 
-check out my [blog]({{<ref "blog">}}) while you're here :D
+check out my [blog]({{<ref "blog">}}) while you're here :D <br> 
+also here's a list of [quotes and articles]({{<ref "blog/list_of_really_good_quotes">}}) I like
