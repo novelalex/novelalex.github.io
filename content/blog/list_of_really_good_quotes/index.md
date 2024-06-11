@@ -15,3 +15,5 @@ tags = [
 - "Is there anything you can do to let the code speak for itself instead of needing subtitles?" <br>
 *\- Russ Olsen, Eloquent Ruby*
 
+- "People's dreams never end!" <br>
+*\- Marshall D. Teach, One Piece*
