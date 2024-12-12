@@ -17,8 +17,7 @@ finally import in into Godot.
 ![The output sprite sheet](grimIdle.png)
 
 ---
-![Grim Discount: A discount version of the grim reaper](grim_idle.gif)
-Animation By Pictoco
+![Grim Discount: A discount version of the grim reaper](grim_idle.gif "Animation By Pictoco")
 
 I want to be able to automate the whole Aseprite step, I want a program I can drag an image sequence into and have it
 spit out a sprite sheet. 

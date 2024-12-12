@@ -106,10 +106,16 @@
 general workflow for putting an animation into Godot looks like this: He exports an image sequence from Animate and sends
 it to me, I then import those images into Aseprite as an animation then I export this animation as a sprite sheet and then
 finally import in into Godot.</p>
-<p><img src="grimIdle.png" alt="The output sprite sheet"></p>
+<p>
+<img src="grimIdle.png" alt="The output sprite sheet">
+</p>
 <hr>
-<p><img src="grim_idle.gif" alt="Grim Discount: A discount version of the grim reaper">
-Animation By Pictoco</p>
+<p>
+<figure>
+    <img src="grim_idle.gif" alt="Grim Discount: A discount version of the grim reaper">
+    <figcaption>Animation By Pictoco</figcaption>
+</figure>
+</p>
 <p>I want to be able to automate the whole Aseprite step, I want a program I can drag an image sequence into and have it
 spit out a sprite sheet.</p>
 <p>I&rsquo;ve had the <a href="https://tauri.app/">Tauri</a> framework on my radar for a while now, and now I have a reason to play around
@@ -128,7 +134,9 @@ with it. It lets me write the frontend of the app in html/css/js and the backend
 </span></span><span style="display:flex;"><span>    <span style="color:#58a1dd">console</span>.<span style="color:#58a1dd">log</span>(<span style="color:#58a1dd">event</span>)
 </span></span><span style="display:flex;"><span>})</span></span></code></pre></div>
 <p>When I drag a file into the window, I can access the paths:</p>
-<p><img src="filedrag.gif" alt="A demonstration of file drag and drop"></p>
+<p>
+<img src="filedrag.gif" alt="A demonstration of file drag and drop">
+</p>
 <p>I&rsquo;ll need a way to send these paths to my rust code, I can do that by creating a Tauri command</p>
 
 
@@ -232,7 +240,9 @@ name, and I am about 80 percent sure that it does exactly what I want it to do.<
 
 <div class="highlight"><pre tabindex="0" style="color:#1d2432;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#58a1dd">out_buffer</span>.<span style="color:#58a1dd">save</span>(<span style="color:#58a1dd">out_name</span>).<span style="color:#58a1dd">unwrap</span>();</span></span></code></pre></div>
 <p>And I can now very quickly make sprite sheets.</p>
-<p><img src="sprite-app-demo.gif" alt="A demo of file drag and drop with the file output"></p>
+<p>
+<img src="sprite-app-demo.gif" alt="A demo of file drag and drop with the file output">
+</p>
 <p>Here&rsquo;s the <a href="https://github.com/novelalex/quick-sprite-sheet">GitHub</a> page.</p>
 
   </content>
