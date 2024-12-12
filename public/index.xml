@@ -19,19 +19,62 @@
       <description>[WIP]
 A visual novel is a type of game, where you read a lot of text, and (optionally) interact with things.
 There are also visuals.
-There are supposed to be visuals&amp;hellip;
-More on that later, I wanted to create a way for non-programmers to create a visual novel based on a simple script, with a syntax that can be read by anyone.
+There are supposed to be visuals.
+More on that later&amp;hellip;
+I wanted to create a way for non-programmers to create visual novels by writing a simple script, with a syntax that can be read by anyone.
 I needed a Domain Specific Language or DSL for short, a DSL is a special kind of language that is kind of like a regular programming language but its made to do a specific task.</description>
       <content:encoded><![CDATA[<p>[WIP]</p>
 <p>A visual novel is a type of game, where you read a lot of text, and (optionally) interact with things.</p>
 <p>There are also visuals.</p>
-<p>There are supposed to be visuals&hellip;</p>
-<p>More on that later, I wanted to create a way for non-programmers to create a visual novel based on a simple script, with a syntax that can be read by anyone.</p>
+<p>There are supposed to be visuals.</p>
+<p>More on that later&hellip;</p>
+<p>I wanted to create a way for non-programmers to create visual novels by writing a simple script, with a syntax that can be read by anyone.</p>
 <p>I needed a Domain Specific Language or DSL for short, a DSL is a special kind of language that is kind of like a regular programming language but its made to do a specific task.</p>
 <p>For example, Python is a general purpose programming language. It can be used to build almost any software you could think of. On the other hand, Unreal blueprints are a good example of a DSL. It was designed to build logic for video games made inside of Unreal Engine.</p>
 <p>I was considering my options, I could write a custom interpreter, or I could try to use Jetbrains MPS as a platform to create my DSL, but I had another option in mind.</p>
-<p>At the time, I was messing around with a language called Ruby, it is well a well known language that is used widely&hellip; for web development. Not a lot of folks are using Ruby as an embedded scripting language for games, because although Ruby is a wonderful language to work in, it&rsquo;s not the fastest.</p>
-<p>But I was in a unique situation, because unlike most game engines that need their script to run at least once every 16 milliseconds, I only needed the script to be run once(kinda) at the beginning of the program.</p>
+<p>At the time, I was messing around with a language called Ruby, which was flexible enough for me to define my own syntax. Ruby is well a well known language that is used widely&hellip; for web development. Not a lot of folks are using Ruby as an embedded scripting language for games, because although Ruby is a wonderful language to work in, it&rsquo;s not the fastest.</p>
+<p>But I was in a unique situation, because unlike most game engines that need their scripts to run at least once every 16 milliseconds, I only needed the script to be run once(kinda) at the beginning of the program.</p>
+<p>I was ready to use Ruby and C++ to build the engine, before making a graphical application using SDL, I decided to get a text based prototype working in the terminal.</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" style="color:#1d2432;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#828b96;font-style:italic">#include</span> <span style="color:#828b96;font-style:italic">&lt;mruby.h&gt;</span><span style="color:#828b96;font-style:italic">   </span></span></span></code></pre></div>
+<p>The DSL is using a feature of Ruby called blocks. Blocks are pieces of code that can be given to a function as input, they can be stored for later use. Ruby&rsquo;s syntax for these functions mimics some features of the language and makes it seem as if they were part of the language.</p>
+<p>This is what the syntax for writing stories looks like:</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" style="color:#1d2432;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#58a1dd">character</span> <span style="color:#a6be9d">:wizard</span>, <span style="color:#a6be9d">&#34;Wizzo the Wizard&#34;</span>, <span style="color:#a6be9d">:blue</span>
+</span></span><span style="display:flex;"><span><span style="color:#58a1dd">character</span> <span style="color:#a6be9d">:tarnished</span>, <span style="color:#a6be9d">&#34;Tarnished&#34;</span>, <span style="color:#a6be9d">:green</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#58a1dd">scene</span> <span style="color:#a6be9d">:start</span> <span style="color:#ff636f">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#58a1dd">description</span> <span style="color:#a6be9d">&#34;You are at a crossroad in a forest.&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#58a1dd">dialogue</span> <span style="color:#a6be9d">:tarnished</span>, <span style="color:#a6be9d">&#34;Which path should I take?&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#58a1dd">choice</span> <span style="color:#a6be9d">&#34;Take the left path&#34;</span>, <span style="color:#a6be9d">:left_path</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#58a1dd">choice</span> <span style="color:#a6be9d">&#34;Take the right path&#34;</span>, <span style="color:#a6be9d">:right_path</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#58a1dd">choice</span> <span style="color:#a6be9d">&#34;Take the cookie path&#34;</span>, <span style="color:#a6be9d">:cookie_path</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff636f">end</span></span></span></code></pre></div>
+<p>A scene holds a timeline, which is just an array. The timeline contains each description or dialog that appears in order from top to bottom.</p>
+<p>The timeline for the <code>:start</code> scene would look like:</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" style="color:#1d2432;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#ff636f">[</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6be9d">&#34;You are at a crossroad in a forest.&#34;</span>,
+</span></span><span style="display:flex;"><span>     {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6be9d">character</span>: <span style="color:#a6be9d">:tarnished</span>, 
+</span></span><span style="display:flex;"><span>        <span style="color:#a6be9d">text</span>: <span style="color:#a6be9d">&#34;Which path should I take?&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span><span style="color:#ff636f">]</span></span></span></code></pre></div>
 ]]></content:encoded>
     </item>
     <item>
