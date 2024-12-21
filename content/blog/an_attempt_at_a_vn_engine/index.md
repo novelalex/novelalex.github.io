@@ -2,7 +2,7 @@
 author = "Novel Alex"
 title = "an attempt at a visual novel engine"
 date = "2024-12-11"
-draft = false
+draft = true
 description = "a story about making a story making thing"
 tags = [
     "gamedev", "programming"
