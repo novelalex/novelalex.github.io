@@ -14,7 +14,7 @@
 />
 <meta
   name="description"
-  content="a story about making a story making thing"
+  content="a story about making a story maker"
 />
 <meta
   name="keywords"
@@ -27,26 +27,26 @@
 
 
 <meta property="og:title" content="an attempt at a visual novel engine" />
-<meta property="og:description" content="a story about making a story making thing" />
+<meta property="og:description" content="a story about making a story maker" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://novelalex.com/an_attempt_at_a_vn_engine/" /><meta property="article:section" content="blog" />
-<meta property="article:published_time" content="2024-12-11T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-12-11T00:00:00+00:00" /><meta property="og:site_name" content="novel&#39;s site" />
+<meta property="article:published_time" content="2025-11-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2025-11-20T00:00:00+00:00" /><meta property="og:site_name" content="novel&#39;s site" />
 
 
 
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="an attempt at a visual novel engine"/>
-<meta name="twitter:description" content="a story about making a story making thing"/>
+<meta name="twitter:description" content="a story about making a story maker"/>
 
 
 
 
 <meta itemprop="name" content="an attempt at a visual novel engine">
-<meta itemprop="description" content="a story about making a story making thing"><meta itemprop="datePublished" content="2024-12-11T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-12-11T00:00:00+00:00" />
-<meta itemprop="wordCount" content="482">
+<meta itemprop="description" content="a story about making a story maker"><meta itemprop="datePublished" content="2025-11-20T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2025-11-20T00:00:00+00:00" />
+<meta itemprop="wordCount" content="110">
 <meta itemprop="keywords" content="gamedev,programming," />
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
@@ -67,7 +67,7 @@
 
 <h1>an attempt at a visual novel engine</h1>
   
-  <p>a story about making a story making thing</p>
+  <p>a story about making a story maker</p>
 
 <nav>
   <a
@@ -93,8 +93,8 @@
       
       <p>
         <i>
-          <time datetime="2024-12-11" pubdate>
-            2024-12-11
+          <time datetime="2025-11-20" pubdate>
+            2025-11-20
           </time>
         </i>
       </p>
@@ -102,26 +102,50 @@
   
   
   <content>
-    <p>[WIP]</p>
-<p>A visual novel is a type of game, where you read a lot of text, and (optionally) interact with things.</p>
+    <h3 id="towards-a-visual-novel">Towards a Visual Novel</h3>
+<p>A visual novel is a type of game where the player reads a lot of text and interacts with the characters.</p>
+<figure>
+  <img src="steins.png" alt="Steins;Gate" width="400">
+  <figcaption>Steins;Gate (2009)</figcaption>
+</figure>
 <p>There are also visuals.</p>
-<p>There are supposed to be visuals.</p>
+<p>There are supposed to be visuals<span id="ellipsis">...</span></p>
 <p>More on that later&hellip;</p>
-<p>I wanted to create a way for non-programmers to create visual novels by writing a simple script, with a syntax that can be read by anyone.</p>
-<p>I needed a Domain Specific Language or DSL for short, a DSL is a special kind of language that is kind of like a regular programming language but its made to do a specific task.</p>
-<p>For example, Python is a general purpose programming language. It can be used to build almost any software you could think of. On the other hand, Unreal blueprints are a good example of a DSL. It was designed to build logic for video games made inside of Unreal Engine.</p>
-<p>I was considering my options, I could write a custom interpreter, or I could try to use Jetbrains MPS as a platform to create my DSL, but I had another option in mind.</p>
-<p>At the time, I was messing around with a language called Ruby, which was flexible enough for me to define my own syntax. Ruby is well a well known language that is used widely&hellip; for web development. Not a lot of folks are using Ruby as an embedded scripting language for games, because although Ruby is a wonderful language to work in, it&rsquo;s not the fastest.</p>
-<p>But I was in a unique situation, because unlike most game engines that need their scripts to run at least once every 16 milliseconds, I only needed the script to be run once(kinda) at the beginning of the program.</p>
+<p>My goal was to create a way for non-programmers to create visual novels by writing a simple script, with a syntax that can be read by anyone.</p>
+<h3 id="domain-specific-languages">Domain Specific Languages</h3>
+<p>I wanted to build a <a href="https://en.wikipedia.org/wiki/Domain-specific_language">DSL (Domain Specific Language)</a> to pull this off.</p>
+<p>A DSL is a special kind of language that is similar a general purpose programming language but it is made to do a very specific task.</p>
+<div class="fc" ">
+<div>
+<p>For example, Python is a general purpose programming language. It can be used to build almost any type of software you could think of.</p>
+<img src="python_snek.svg" alt="A Python" width="100" height="100" style="display: block; margin: 0 auto;">
+</div>
+<div>
+<p>On the other hand, <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/blueprints-visual-scripting-in-unreal-engine">Unreal Blueprints</a> is a DSL. It was designed to build logic for video games running on Unreal Engine.</p>
+<img src="bluprince.svg" alt="An Unreal Blueprint" width="300" height="300" style="display: block; margin: 0 auto;">
+</div>
+</div>
+<br>
+<p>I was considering my options, I could try to write a custom interpreter, or use a <a href="https://en.wikipedia.org/wiki/Language_workbench">language workbench</a> like Jetbrains MPS as a platform to create my DSL, but I had another idea in mind.</p>
+<p>At the time, I was messing around with a language called Ruby.</p>
+<p>The cool thing about Ruby is that it is flexible enough for me to define functions that feel like new syntax.</p>
+<p>
+<figure>
+    <img src="spork.png" alt="My Options">
+    <figcaption>The Crossroads</figcaption>
+</figure>
+</p>
+<p>Ruby is well a well known language that is used widely&hellip; for web development. Not a lot of folks are using Ruby as an embedded scripting language for games, because although Ruby is a wonderful language to work in, it&rsquo;s not the fastest.</p>
+<p>But I was in a unique situation. Unlike most game engines that need their scripts to run at least once every 60th of a second. I only needed the script to be run once (kinda) at the beginning of the program.</p>
 <p>I was ready to use Ruby and C++ to build the engine, before making a graphical application using SDL, I decided to get a text based prototype working in the terminal.</p>
-
-
-
-
-
-
-<div class="highlight"><pre tabindex="0" style="color:#1d2432;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#828b96;font-style:italic">#include</span> <span style="color:#828b96;font-style:italic">&lt;mruby.h&gt;</span><span style="color:#828b96;font-style:italic">   </span></span></span></code></pre></div>
-<p>The DSL is using a feature of Ruby called blocks. Blocks are pieces of code that can be given to a function as input, they can be stored for later use. Ruby&rsquo;s syntax for these functions mimics some features of the language and makes it seem as if they were part of the language.</p>
+<div class="fc">
+<div>
+<p> The DSL is using a feature of Ruby called blocks. Blocks are pieces of code that can be given to a function as input, they can be stored for later use. Ruby's syntax for these functions mimics some features of the language and makes it seem as if they were part of the language. </p>
+</div>
+<div style="flex-grow: 2;">
+  <img src="blocks.svg" alt="Blocks" width="2000" style="margin: 2rem 0">
+</div>
+</div>
 <p>This is what the syntax for writing stories looks like:</p>
 
 
@@ -129,18 +153,49 @@
 
 
 
-<div class="highlight"><pre tabindex="0" style="color:#1d2432;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#58a1dd">character</span> <span style="color:#a6be9d">:wizard</span>, <span style="color:#a6be9d">&#34;Wizzo the Wizard&#34;</span>, <span style="color:#a6be9d">:blue</span>
-</span></span><span style="display:flex;"><span><span style="color:#58a1dd">character</span> <span style="color:#a6be9d">:tarnished</span>, <span style="color:#a6be9d">&#34;Tarnished&#34;</span>, <span style="color:#a6be9d">:green</span>
+<div class="highlight"><pre tabindex="0" style="color:#1d2432;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#58a1dd">create_story</span> <span style="color:#ff636f">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#58a1dd">character</span> <span style="color:#a6be9d">:wizard</span>, <span style="color:#a6be9d">&#34;Wizzo the Wizard&#34;</span>, <span style="color:#a6be9d">:blue</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#58a1dd">character</span> <span style="color:#a6be9d">:tarnished</span>, <span style="color:#a6be9d">&#34;Tarnished&#34;</span>, <span style="color:#a6be9d">:green</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#58a1dd">scene</span> <span style="color:#a6be9d">:start</span> <span style="color:#ff636f">do</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#58a1dd">description</span> <span style="color:#a6be9d">&#34;You are at a crossroad in a forest.&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#58a1dd">dialogue</span> <span style="color:#a6be9d">:tarnished</span>, <span style="color:#a6be9d">&#34;Which path should I take?&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#58a1dd">choice</span> <span style="color:#a6be9d">&#34;Take the left path&#34;</span>, <span style="color:#a6be9d">:left_path</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#58a1dd">choice</span> <span style="color:#a6be9d">&#34;Take the right path&#34;</span>, <span style="color:#a6be9d">:right_path</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#58a1dd">choice</span> <span style="color:#a6be9d">&#34;Take the cookie path&#34;</span>, <span style="color:#a6be9d">:cookie_path</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#58a1dd">scene</span> <span style="color:#a6be9d">:start</span> <span style="color:#ff636f">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#58a1dd">description</span> <span style="color:#a6be9d">&#34;You are at a crossroads in a forest.&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#58a1dd">dialogue</span> <span style="color:#a6be9d">:tarnished</span>, <span style="color:#a6be9d">&#34;Which path should I take?&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#58a1dd">choice</span> <span style="color:#a6be9d">&#34;Take the left path&#34;</span>, <span style="color:#a6be9d">:left_path</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#58a1dd">choice</span> <span style="color:#a6be9d">&#34;Take the right path&#34;</span>, <span style="color:#a6be9d">:right_path</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#58a1dd">choice</span> <span style="color:#a6be9d">&#34;Take the cookie path&#34;</span>, <span style="color:#a6be9d">:cookie_path</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff636f">end</span>
 </span></span><span style="display:flex;"><span><span style="color:#ff636f">end</span></span></span></code></pre></div>
+<p>The <code>Story</code> class holds on to the characters, the scenes, the current scene and the current state of the game.</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" style="color:#1d2432;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#ff636f">class</span> <span style="color:#58a1dd">Story</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff636f">attr_reader</span> <span style="color:#a6be9d">:scenes</span>, <span style="color:#a6be9d">:characters</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff636f">attr_accessor</span> <span style="color:#a6be9d">:state</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff636f">def</span> <span style="color:#58a1dd">initialize</span>(<span style="color:#ff636f">&amp;</span><span style="color:#58a1dd">block</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#58a1dd">@scenes</span> <span style="color:#ff636f">=</span> {}
+</span></span><span style="display:flex;"><span>    <span style="color:#58a1dd">@characters</span> <span style="color:#ff636f">=</span> {}
+</span></span><span style="display:flex;"><span>    <span style="color:#58a1dd">@current_scene</span> <span style="color:#ff636f">=</span> <span style="color:#ff636f">nil</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#58a1dd">instance_eval</span>(<span style="color:#ff636f">&amp;</span><span style="color:#58a1dd">block</span>) 
+</span></span><span style="display:flex;"><span>  <span style="color:#ff636f">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#828b96;font-style:italic"># ...</span></span></span></code></pre></div>
+<p><code>instance_eval(&amp;block)</code> is what executes the code in the block passed into the function.</p>
+<p>The characters are represented by a map, which just keeps track of a user friendly version of their name and and the color to display their dialog in.</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" style="color:#1d2432;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span> <span style="color:#ff636f">def</span> <span style="color:#58a1dd">character</span>(<span style="color:#58a1dd">name</span>, <span style="color:#58a1dd">display_name</span>, <span style="color:#58a1dd">color</span>)
+</span></span><span style="display:flex;"><span>   <span style="color:#58a1dd">@characters</span><span style="color:#ff636f">[</span><span style="color:#58a1dd">name</span><span style="color:#ff636f">]</span> <span style="color:#ff636f">=</span> { <span style="color:#58a1dd">name</span>: <span style="color:#58a1dd">display_name</span>, <span style="color:#a6be9d">color</span>: <span style="color:#58a1dd">color</span> }
+</span></span><span style="display:flex;"><span> <span style="color:#ff636f">end</span></span></span></code></pre></div>
 <p>A scene holds a timeline, which is just an array. The timeline contains each description or dialog that appears in order from top to bottom.</p>
-<p>The timeline for the <code>:start</code> scene would look like:</p>
+<p>The timeline for the <code>:start</code> scene would look like this:</p>
 
 
 
@@ -154,7 +209,86 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#a6be9d">text</span>: <span style="color:#a6be9d">&#34;Which path should I take?&#34;</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span><span style="color:#ff636f">]</span></span></span></code></pre></div>
+<p>This script by itself is just data, we need somthing that can understand it and turn it into an interactive story.</p>
+<p>We need an engine.</p>
+<h3 id="the-engine">The Engine</h3>
+<p>The engine is going to be responsible for turning the Ruby scripts into an actual game.</p>
+<p>The engine starts by loads the DSL and uses a function in the DSL script to load the story script.</p>
 
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" style="color:#1d2432;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#58a1dd">std</span><span style="color:#ff636f">::</span><span style="color:#58a1dd">string</span> <span style="color:#58a1dd">dsl_code</span> <span style="color:#ff636f">=</span> <span style="color:#58a1dd">read_file</span>(<span style="color:#a6be9d">&#34;story_dsl.rb&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#58a1dd">mrb_load_string</span>(<span style="color:#58a1dd">mrb</span>, <span style="color:#58a1dd">dsl_code</span>.<span style="color:#58a1dd">c_str</span>());
+</span></span><span style="display:flex;"><span>     
+</span></span><span style="display:flex;"><span><span style="color:#58a1dd">mrb_funcall</span>(
+</span></span><span style="display:flex;"><span>  <span style="color:#58a1dd">mrb</span>, 
+</span></span><span style="display:flex;"><span>  <span style="color:#58a1dd">mrb_top_self</span>(<span style="color:#58a1dd">mrb</span>), 
+</span></span><span style="display:flex;"><span>  <span style="color:#a6be9d">&#34;load_story&#34;</span>, <span style="color:#a6be9d">1</span>, 
+</span></span><span style="display:flex;"><span>  <span style="color:#58a1dd">mrb_str_new_cstr</span>(<span style="color:#58a1dd">mrb</span>, <span style="color:#a6be9d">&#34;test_story.rb&#34;</span>));</span></span></code></pre></div>
+<p>The <code>load_story</code> function executes the contents of the story file, which is just a call to <code>create_story</code> with a block representing the entire story.</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" style="color:#1d2432;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#ff636f">def</span> <span style="color:#58a1dd">load_story</span>(<span style="color:#58a1dd">filename</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#58a1dd">story_content</span> <span style="color:#ff636f">=</span> <span style="color:#58a1dd">File</span><span style="color:#ff636f">.</span><span style="color:#58a1dd">read</span>(<span style="color:#58a1dd">filename</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#58a1dd">$story</span> <span style="color:#ff636f">=</span> <span style="color:#58a1dd">eval</span>(<span style="color:#58a1dd">story_content</span>)
+</span></span><span style="display:flex;"><span><span style="color:#ff636f">end</span></span></span></code></pre></div>
+<p>The heart of the engine is the code below. It displays timeline of current scene. and then deals with player choices.</p>
+<p>Once the scene if over it checks if it can continue to the next scene, if there is no next scene it displays &ldquo;The End.&rdquo;</p>
+
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" style="color:#1d2432;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#ff636f">void</span> <span style="color:#58a1dd">StoryPlayer</span><span style="color:#ff636f">::</span><span style="color:#58a1dd">play</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff636f">while</span> (<span style="color:#58a1dd">true</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#58a1dd">mrb_value</span> <span style="color:#58a1dd">scene</span> <span style="color:#ff636f">=</span> <span style="color:#58a1dd">mrb_utils</span>.<span style="color:#58a1dd">get_hash_value</span>(<span style="color:#58a1dd">scenes</span>, <span style="color:#58a1dd">current_scene</span>.<span style="color:#58a1dd">c_str</span>());
+</span></span><span style="display:flex;"><span>        <span style="color:#ff636f">if</span> (<span style="color:#58a1dd">mrb_type</span>(<span style="color:#58a1dd">scene</span>) <span style="color:#ff636f">==</span> <span style="color:#58a1dd">MRB_TT_FALSE</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#58a1dd">std</span><span style="color:#ff636f">::</span><span style="color:#58a1dd">cout</span> <span style="color:#ff636f">&lt;&lt;</span> <span style="color:#a6be9d">&#34;[ERROR] :&#34;</span> <span style="color:#ff636f">&lt;&lt;</span> <span style="color:#58a1dd">current_scene</span> <span style="color:#ff636f">&lt;&lt;</span> <span style="color:#a6be9d">&#34; is not defined as a scene.</span><span style="color:#a6be9d">\n</span><span style="color:#a6be9d">&#34;</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#58a1dd">print_timeline</span>(<span style="color:#58a1dd">scene</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#58a1dd">mrb_value</span> <span style="color:#58a1dd">choices</span> <span style="color:#ff636f">=</span> <span style="color:#58a1dd">mrb_utils</span>.<span style="color:#58a1dd">get_hash_value</span>(<span style="color:#58a1dd">scene</span>, <span style="color:#a6be9d">&#34;choices&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#58a1dd">mrb_value</span> <span style="color:#58a1dd">cont</span> <span style="color:#ff636f">=</span> <span style="color:#58a1dd">mrb_utils</span>.<span style="color:#58a1dd">get_hash_value</span>(<span style="color:#58a1dd">scene</span>, <span style="color:#a6be9d">&#34;continue&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff636f">if</span> (<span style="color:#58a1dd">mrb_utils</span>.<span style="color:#58a1dd">hash_empty</span>(<span style="color:#58a1dd">choices</span>) <span style="color:#ff636f">&amp;&amp;</span> <span style="color:#58a1dd">mrb_utils</span>.<span style="color:#58a1dd">is_nil</span>(<span style="color:#58a1dd">cont</span>)) {
+</span></span><span style="display:flex;"><span>            <span style="color:#58a1dd">std</span><span style="color:#ff636f">::</span><span style="color:#58a1dd">cout</span> <span style="color:#ff636f">&lt;&lt;</span> <span style="color:#a6be9d">&#34;The End.&#34;</span> <span style="color:#ff636f">&lt;&lt;</span> <span style="color:#58a1dd">std</span><span style="color:#ff636f">::</span><span style="color:#58a1dd">endl</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#ff636f">break</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff636f">if</span> (<span style="color:#58a1dd">handle_continue</span>(<span style="color:#58a1dd">scene</span>)) {
+</span></span><span style="display:flex;"><span>            <span style="color:#58a1dd">flush_input_buffer</span>();
+</span></span><span style="display:flex;"><span>            <span style="color:#ff636f">continue</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#58a1dd">handle_choices</span>(<span style="color:#58a1dd">scene</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<p>Running the program looks like this:</p>
+<p>
+<img src="game.gif" alt="Output Terminal">
+</p>
+<h3 id="the-cliffhanger">The Cliffhanger</h3>
+<p>I&rsquo;ve set out to create a visual novel, but as of now I have a data-driven text adventure engine.</p>
+<p>Stay tuned for Graphics.</p>
+<script>
+  const ellipsis = document.getElementById('ellipsis');
+  const dots = [".", "..", "..."];
+  let index = 0;
+
+  setInterval(() => {
+    index = (index + 1) % dots.length; // cycle 0 → 1 → 2 → 0
+    ellipsis.textContent = dots[index];
+  }, 1000); // changes every 0.5 seconds
+</script>
   </content>
   <p>
     
@@ -167,13 +301,12 @@
     </main>
     <footer>
       
-  <span>© 2024 Novel Alex</span>
+  <span>© 2025 Novel Boby Alex</span>
 
 
   <span>
-    |
-    Made with
-    <a href="https://github.com/maolonglong/hugo-simple/">Hugo ʕ•ᴥ•ʔ Simple</a>
+    
+    
   </span>
 
 
