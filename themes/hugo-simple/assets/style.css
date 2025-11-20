@@ -45,3 +45,24 @@ main > p:first-child time {
   stroke: currentColor;
   fill: currentColor;
 }
+
+
+ .fc {
+  display: flex; /* or inline-flex */
+  justify-content: space-between;
+  gap: 1rem;
+  margin: -1rem 0;
+  padding: 0;
+}
+
+.fi2 {
+  flex-grow: 4; /* default 0 */
+}
+
+.border-box {
+  border-width: 1px;
+  border-style: solid;
+  border-color:  var(--text);
+  padding: 0.25rem 1rem;
+  margin: 1rem 0;
+}

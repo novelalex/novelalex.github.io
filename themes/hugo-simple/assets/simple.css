@@ -1,16 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 /* Global variables. */
 :root,
 ::backdrop {
   /* Set sans-serif & mono fonts */
-  --sans-font: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
+  --sans-font: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
     "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI", Arial, Helvetica,
     "Helvetica Neue", sans-serif;
-  --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  --mono-font: "Syne Mono", Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   --standard-border-radius: 5px;
 
   /* Default (light) theme */
-  --bg: #fff;
-  --accent-bg: #f5f7ff;
+  --bg: #fffcf3;
+  --accent-bg: #ffffff;
   --text: #212121;
   --text-light: #585858;
   --border: #898EA4;
@@ -21,6 +22,7 @@
   --preformatted: #444;
   --marked: #ffdd33;
   --disabled: #efefef;
+  --bcc: #000;
 }
 
 /* Dark theme */
@@ -28,8 +30,8 @@
   :root,
   ::backdrop {
     color-scheme: dark;
-    --bg: #1b1b1b;
-    --accent-bg: #191919;
+    --bg: #070707;
+    --accent-bg: #000;
     --text: #dcdcdc;
     --text-light: #ababab;
     --accent: #ffffff;
@@ -38,7 +40,38 @@
     --code: #f06292;
     --preformatted: #ccc;
     --disabled: #111;
+    --bcc: #FFF;
   }
+
+
+  
+  /* Add a bit of transparency so light media isn't so glaring in dark mode */
+  img,
+  video {
+    opacity: 0.9;
+  }
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: light) {
+  :root,
+  ::backdrop {
+    color-scheme: dark;
+    --bg: #070707;
+    --accent-bg: #000;
+    --text: #dcdcdc;
+    --text-light: #ababab;
+    --accent: #ffffff;
+    --accent-hover: #ffe099;
+    --accent-text: var(--bg);
+    --code: #f06292;
+    --preformatted: #ccc;
+    --disabled: #111;
+    --bcc: #FFF;
+  }
+
+
+  
   /* Add a bit of transparency so light media isn't so glaring in dark mode */
   img,
   video {
@@ -81,28 +114,32 @@ body > * {
   grid-column: 2;
 }
 
-/* Make the header bg full width, but the content inline with body */
 body > header {
   background-color: var(--accent-bg);
   border-bottom: 1px solid var(--border);
-  text-align: center;
-  padding: 0 0.5rem 1rem 0.5rem;
   grid-column: 1 / -1;
+}
+
+body > header > * {
+  max-width: 45rem; /* same as main content max-width */
+  margin: 0 auto;   /* center it horizontally */
+  padding: 0.5rem;  /* optional padding */
+  text-align: right; /* keep right-aligned text */
 }
 
 body > header > *:only-child {
   margin-block-start: 2rem;
 }
 
-body > header h1 {
-  max-width: 1200px;
-  margin: 1rem auto;
+/* body > header h1 {
+  max-width: 1000px;
+  margin: 1rem auto 0.1rem auto;
 }
 
 body > header p {
-  max-width: 40rem;
-  margin: 1rem auto;
-}
+  max-width: 1200px;
+  margin: 0.1rem auto 0.1rem auto;
+} */
 
 /* Add a little padding to ensure spacing is correct between content and header > nav */
 main {
@@ -252,10 +289,13 @@ input:enabled:focus-visible:where(
 
 /* Format navigation */
 header > nav {
+  margin: 0 auto;
+  padding: 0 0 0 0;
   font-size: 1rem;
   line-height: 2;
-  padding: 0 0 0 0;
 }
+
+
 
 /* Use flexbox to allow items to wrap, as needed */
 header > nav ul,

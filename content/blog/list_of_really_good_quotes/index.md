@@ -1,6 +1,6 @@
 +++
 author = "Novel Alex"
-title = "a list of articles and quotes i like"
+title = "a list of articles and quotes i am fond of"
 date = "2024-05-24"
 draft = false
 description = "for future reference or something idk"

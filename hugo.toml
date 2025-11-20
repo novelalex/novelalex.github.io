@@ -2,7 +2,7 @@ baseURL = 'https://novelalex.com'
 languageCode = 'en'
 title = "novel's site"
 theme = "hugo-simple"
-copyright = "© 2024 Novel Alex"
+copyright = "© 2025 Novel Boby Alex"
 
 # Generate a nice robots.txt for SEO
 enableRobotsTXT = true
