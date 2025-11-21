@@ -5,7 +5,6 @@ date = "2024-05-24"
 draft = false
 description = "for future reference or something idk"
 tags = [
-    "list"
 ]
 +++
 
@@ -29,6 +28,8 @@ tags = [
 <br> 
 *By Amin Patel*
 
+[3D Math Primer for Graphics and Game Development](https://gamemath.com/book/) <br>
+*By Fletcher Dunn and Ian Parbery*
 
 #### webdev
 

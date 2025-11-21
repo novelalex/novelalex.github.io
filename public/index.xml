@@ -267,8 +267,8 @@ A visual novel (VN) is a form of digital interactive fiction.They combine a tex
 &amp;ldquo;People&amp;rsquo;s dreams never end!&amp;rdquo; - Marshall D. Teach, One Piece
 resources gamedev Game Programming Patterns - design patterns for games By Robert Nystrom
 Red Blob Games - explanations of algorithms for games By Amin Patel
-webdev CSS Flexbox Layout Guide By Chris Coyier, CSS-Tricks
-other stuff Crafting Interpreters - build a programming lanugage By Robert Nystrom</description>
+3D Math Primer for Graphics and Game Development By Fletcher Dunn and Ian Parbery
+webdev CSS Flexbox Layout Guide By Chris Coyier, CSS-Tricks</description>
       <content:encoded><![CDATA[<h3 id="quotes">quotes</h3>
 <p>&ldquo;complexity very, very bad&rdquo; <br>
 <em>- Carson Gross, <a href="https://grugbrain.dev/">The Grug Brained Developer</a></em></p>
@@ -281,6 +281,8 @@ other stuff Crafting Interpreters - build a programming lanugage By Robert Nystr
 <p><a href="https://www.redblobgames.com/">Red Blob Games</a> - explanations of algorithms for games
 <br>
 <em>By Amin Patel</em></p>
+<p><a href="https://gamemath.com/book/">3D Math Primer for Graphics and Game Development</a> <br>
+<em>By Fletcher Dunn and Ian Parbery</em></p>
 <h4 id="webdev">webdev</h4>
 <p><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">CSS Flexbox Layout Guide</a> <br>
 <em>By Chris Coyier, CSS-Tricks</em></p>
