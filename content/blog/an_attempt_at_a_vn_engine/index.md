@@ -93,7 +93,7 @@ This makes inventory systems, shops or friendship systems easy to implement.
 
 </div>
 
-Using Ruby's blocks, the DSL allows you to write stores with a syntax that looks like this:
+Using Ruby's blocks, the DSL allows you to write stories with a syntax that looks like this:
 
 ```ruby
 create_story do
@@ -115,7 +115,7 @@ end
 <div class="fc">
 <div>
 
-In the code above `create_story` is just a function that accepts a block as a parameter. It just forwards that block into the constructor of the `Story` class. That's where the block gets run.
+In the code above `create_story` is just a function that accepts a block as an argument. It just forwards that block into the constructor of the `Story` class. That's where the block gets run.
 </div>
 
 <div style="flex-grow: 2;">
@@ -142,7 +142,7 @@ class Story
 
 ```
 
-`instance_eval(&block)` is what runs the code in the block passed into the function.
+`instance_eval(&block)` is what runs the code of the block that was passed into the constructor.
 
 The characters are represented by a map, which just keeps track of a user friendly version of their name and and the color to display their dialog in.
 
@@ -196,7 +196,7 @@ mrb_funcall(
   mrb_str_new_cstr(mrb, "test_story.rb"));
 ```
 
-The `load_story` function simply loads the reads the file and runs it. The file just contains a call to `create_story` with a block representing the entire story:
+The `load_story` function simply loads the file and runs it. The file just contains a call to `create_story` with a block representing the entire story:
 
 ```ruby
 def load_story(filename)
