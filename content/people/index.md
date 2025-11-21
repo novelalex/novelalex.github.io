@@ -1,5 +1,5 @@
 ---
-title: "People"
+title: "people"
 ---
 
 #### Here are some cool people you should check out
