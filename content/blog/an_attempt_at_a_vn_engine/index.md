@@ -41,7 +41,7 @@ My goal was to create a way for non-programmers to create visual novels by writi
 
 I wanted to build a [DSL (Domain Specific Language)](https://en.wikipedia.org/wiki/Domain-specific_language) to pull this off. 
 
-A DSL is a special kind of language that is similar a general purpose programming language but it is made to do a very specific task. 
+A DSL is a special kind of language that is similar a general purpose programming language but it is designed for a very specific purpose. 
 
 <div class="fc" ">
 <div>
