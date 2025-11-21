@@ -26,7 +26,7 @@ title: "projects"
 
 <br>
 
-#### Projects I have worked on
+#### I have worked on
 
 
 

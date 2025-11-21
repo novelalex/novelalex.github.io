@@ -9,7 +9,7 @@ title: "novel's site"
 
 <div class="border-box fi2">
 
-i make video games and music.
+i am a video game programmer.
 
 </div>
 
