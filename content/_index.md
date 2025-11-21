@@ -30,7 +30,7 @@ you can find me on:
 
 check out my [blog]({{<ref "blog">}}) while you're here <br> 
 or look at some of my [projects]({{<ref "projects">}}) <br> 
-also here's a list of [quotes and articles]({{<ref "blog/list_of_really_good_quotes">}}) I like
+also here's a list of [articles, books and quotes]({{<ref "other/list_of_really_good_quotes">}}) I like
 </div>
 </div>
 

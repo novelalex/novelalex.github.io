@@ -259,22 +259,34 @@ A visual novel (VN) is a form of digital interactive fiction.They combine a tex
 </script>]]></content:encoded>
     </item>
     <item>
-      <title>a list of articles and quotes i am fond of</title>
-      <link>https://novelalex.com/list_of_really_good_quotes/</link>
+      <title>a compilation of articles, books and quotes i like</title>
+      <link>https://novelalex.com/other/list_of_really_good_quotes/</link>
       <pubDate>Fri, 24 May 2024 00:00:00 +0000</pubDate><author>novelalex29@outlook.com (Novel Alex)</author>
-      <guid>https://novelalex.com/list_of_really_good_quotes/</guid>
-      <description>&amp;ldquo;complexity very, very bad&amp;rdquo; - Carson Gross, The Grug Brained Developer
-&amp;ldquo;People&amp;rsquo;s dreams never end!&amp;rdquo; - Marshall D. Teach, One Piece</description>
-      <content:encoded><![CDATA[<ul>
-<li>
+      <guid>https://novelalex.com/other/list_of_really_good_quotes/</guid>
+      <description>quotes &amp;ldquo;complexity very, very bad&amp;rdquo; - Carson Gross, The Grug Brained Developer
+&amp;ldquo;People&amp;rsquo;s dreams never end!&amp;rdquo; - Marshall D. Teach, One Piece
+resources gamedev Game Programming Patterns - design patterns for games By Robert Nystrom
+Red Blob Games - explanations of algorithms for games By Amin Patel
+webdev CSS Flexbox Layout Guide By Chris Coyier, CSS-Tricks
+other stuff Crafting Interpreters - build a programming lanugage By Robert Nystrom</description>
+      <content:encoded><![CDATA[<h3 id="quotes">quotes</h3>
 <p>&ldquo;complexity very, very bad&rdquo; <br>
 <em>- Carson Gross, <a href="https://grugbrain.dev/">The Grug Brained Developer</a></em></p>
-</li>
-<li>
 <p>&ldquo;People&rsquo;s dreams never end!&rdquo; <br>
 <em>- Marshall D. Teach, One Piece</em></p>
-</li>
-</ul>
+<h3 id="resources">resources</h3>
+<h4 id="gamedev">gamedev</h4>
+<p><a href="https://gameprogrammingpatterns.com/contents.html">Game Programming Patterns</a> - design patterns for games <br>
+<em>By Robert Nystrom</em></p>
+<p><a href="https://www.redblobgames.com/">Red Blob Games</a> - explanations of algorithms for games
+<br>
+<em>By Amin Patel</em></p>
+<h4 id="webdev">webdev</h4>
+<p><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">CSS Flexbox Layout Guide</a> <br>
+<em>By Chris Coyier, CSS-Tricks</em></p>
+<h4 id="other-stuff">other stuff</h4>
+<p><a href="https://craftinginterpreters.com/contents.html">Crafting Interpreters</a> - build a programming lanugage <br>
+<em>By Robert Nystrom</em></p>
 ]]></content:encoded>
     </item>
     <item>
