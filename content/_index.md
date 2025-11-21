@@ -42,5 +42,5 @@ also here's a list of [quotes and articles]({{<ref "blog/list_of_really_good_quo
   setInterval(() => {
     index = 1 - index; // toggle between 0 and 1
     faceElement.textContent = faces[index];
-  }, 2000); // 2 seconds
+  }, 2000);
 </script>

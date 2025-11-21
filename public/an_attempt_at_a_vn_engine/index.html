@@ -46,7 +46,7 @@
 <meta itemprop="name" content="an attempt at a visual novel engine">
 <meta itemprop="description" content="a story about making a story maker"><meta itemprop="datePublished" content="2025-11-20T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2025-11-20T00:00:00+00:00" />
-<meta itemprop="wordCount" content="158">
+<meta itemprop="wordCount" content="159">
 <meta itemprop="keywords" content="gamedev,programming," />
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
@@ -104,7 +104,7 @@
   <content>
     <h3 id="towards-a-visual-novel">Towards a Visual Novel</h3>
 <p>A visual novel is a type of game where the player reads a lot of text and interacts with the characters.</p>
-<p>I&rsquo;m not doing a great job of explaining this, lets consult <a href="https://en.wikipedia.org/wiki/Visual_novel">Wikipedia</a>.</p>
+<p>I&rsquo;m not doing a great job of explaining this, so let&rsquo;s consult <a href="https://en.wikipedia.org/wiki/Visual_novel">Wikipedia</a>.</p>
 <div>
   <blockquote cite="https://en.wikipedia.org/wiki/Visual_novel">
     <p>
@@ -154,7 +154,7 @@
 <div>
 <p> The DSL is using a feature of Ruby called blocks. Blocks are pieces of code that can be given to a function as input, they can be stored for later use. Ruby's syntax for these functions mimics some features of the language and makes it seem as if these custom functions were part of the language. </p>
 </div>
-<p>Using Ruby&rsquo;s blocks, the DSL allows you to write stores with a syntax that looks like this:</p>
+<p>Using Ruby&rsquo;s blocks, the DSL allows you to write stories with a syntax that looks like this:</p>
 
 
 
@@ -175,7 +175,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#ff636f">end</span></span></span></code></pre></div>
 <div class="fc">
 <div>
-<p>In the code above <code>create_story</code> is just a function that accepts a block as a parameter. It just forwards that block into the constructor of the <code>Story</code> class. That&rsquo;s where the block gets run.</p>
+<p>In the code above <code>create_story</code> is just a function that accepts a block as an argument. It just forwards that block into the constructor of the <code>Story</code> class. That&rsquo;s where the block gets run.</p>
 </div>
 <div style="flex-grow: 2;">
   <img src="blocks.svg" alt="Blocks" width="2000" style="margin: 2rem 0">
@@ -199,7 +199,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#58a1dd">instance_eval</span>(<span style="color:#ff636f">&amp;</span><span style="color:#58a1dd">block</span>) 
 </span></span><span style="display:flex;"><span>  <span style="color:#ff636f">end</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#828b96;font-style:italic"># ...</span></span></span></code></pre></div>
-<p><code>instance_eval(&amp;block)</code> is what runs the code in the block passed into the function.</p>
+<p><code>instance_eval(&amp;block)</code> is what runs the code of the block that was passed into the constructor.</p>
 <p>The characters are represented by a map, which just keeps track of a user friendly version of their name and and the color to display their dialog in.</p>
 
 
@@ -253,7 +253,7 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#58a1dd">mrb_top_self</span>(<span style="color:#58a1dd">mrb</span>), 
 </span></span><span style="display:flex;"><span>  <span style="color:#a6be9d">&#34;load_story&#34;</span>, <span style="color:#a6be9d">1</span>, 
 </span></span><span style="display:flex;"><span>  <span style="color:#58a1dd">mrb_str_new_cstr</span>(<span style="color:#58a1dd">mrb</span>, <span style="color:#a6be9d">&#34;test_story.rb&#34;</span>));</span></span></code></pre></div>
-<p>The <code>load_story</code> function simply loads the reads the file and runs it. The file just contains a call to <code>create_story</code> with a block representing the entire story:</p>
+<p>The <code>load_story</code> function simply loads the file and runs it. The file just contains a call to <code>create_story</code> with a block representing the entire story:</p>
 
 
 
@@ -336,9 +336,9 @@
   let index = 0;
 
   setInterval(() => {
-    index = (index + 1) % dots.length; // cycle 0 → 1 → 2 → 0
+    index = (index + 1) % dots.length;
     ellipsis.textContent = dots[index];
-  }, 1000); // changes every 0.5 seconds
+  }, 1000);
 </script>
   </content>
   <p>

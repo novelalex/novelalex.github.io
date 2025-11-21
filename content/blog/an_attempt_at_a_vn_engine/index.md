@@ -279,7 +279,7 @@ Stay tuned for Graphics.
   let index = 0;
 
   setInterval(() => {
-    index = (index + 1) % dots.length; // cycle 0 → 1 → 2 → 0
+    index = (index + 1) % dots.length;
     ellipsis.textContent = dots[index];
-  }, 1000); // changes every 0.5 seconds
+  }, 1000);
 </script>
