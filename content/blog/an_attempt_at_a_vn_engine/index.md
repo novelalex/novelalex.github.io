@@ -87,7 +87,7 @@ This makes inventory systems, shops or friendship systems easy to implement.
 
 <div>
 
-<p> The DSL is using a feature of Ruby called blocks. Blocks are pieces of code that can be given to a function as input, they can be stored for later use. Ruby's syntax for these functions mimics some features of the language and makes it seem as if they were part of the language. </p>
+<p> The DSL is using a feature of Ruby called blocks. Blocks are pieces of code that can be given to a function as input, they can be stored for later use. Ruby's syntax for these functions mimics some features of the language and makes it seem as if these custom functions were part of the language. </p>
 
 
 
