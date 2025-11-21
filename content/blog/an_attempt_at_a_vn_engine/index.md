@@ -13,15 +13,25 @@ tags = [
 
 A visual novel is a type of game where the player reads a lot of text and interacts with the characters. 
 
+I'm not doing a great job of explaining this, lets consult <a href="https://en.wikipedia.org/wiki/Visual_novel">Wikipedia</a>.
+
+<div>
+  <blockquote cite="https://en.wikipedia.org/wiki/Visual_novel">
+    <p>
+      A visual novel (VN) is a form of digital interactive fiction.
+      They combine a textual narrative with static or animated illustrations and a varying degree of interactivity.
+    </p>
+  </blockquote>
+</div>
+
 <figure>
   <img src="steins.png" alt="Steins;Gate" width="400">
   <figcaption>Steins;Gate (2009)</figcaption>
 </figure>
 
-There are also visuals.
+So visual novels are games with loads of text. They also have visuals. 
 
-<p>There are supposed to be visuals<span id="ellipsis">...</span></p>
-
+They are supposed to have visuals<span id="ellipsis">...</span>
 
 More on that later... 
 
@@ -58,28 +68,32 @@ The cool thing about Ruby is that it is flexible enough for me to define functio
 
 ![My Options](spork.png "The Crossroads")
 
-Ruby is well a well known language that is used widely... for web development. Not a lot of folks are using Ruby as an embedded scripting language for games, because although Ruby is a wonderful language to work in, it's not the fastest.
-
+Ruby is a well known language that is used widely... for web development. Not a lot of folks are using Ruby as an embedded scripting language for games, because although Ruby is a wonderful language to work in, it's not the fastest.
 
 
 But I was in a unique situation. Unlike most game engines that need their scripts to run at least once every 60th of a second. I only needed the script to be run once (kinda) at the beginning of the program.
 
-I was ready to use Ruby and C++ to build the engine, before making a graphical application using SDL, I decided to get a text based prototype working in the terminal.
 
-<div class="fc">
+I was ready to use Ruby and C++ to build the engine, before making a graphical application using SDL, I decided to get a text based prototype running in the terminal.
+
+<aside style="font-size: 0.8rem;">
+
+A side effect of using Ruby over languages like XML or JSON is that I can embed logic into my scripts.
+
+This makes inventory systems, shops or friendship systems easy to implement.
+
+</aside>
+
+
 <div>
 
 <p> The DSL is using a feature of Ruby called blocks. Blocks are pieces of code that can be given to a function as input, they can be stored for later use. Ruby's syntax for these functions mimics some features of the language and makes it seem as if they were part of the language. </p>
-</div>
 
-<div style="flex-grow: 2;">
 
-  <img src="blocks.svg" alt="Blocks" width="2000" style="margin: 2rem 0">
 
 </div>
-</div>
 
-This is what the syntax for writing stories looks like:
+Using Ruby's blocks, the DSL allows you to write stores with a syntax that looks like this:
 
 ```ruby
 create_story do
@@ -95,6 +109,22 @@ create_story do
   end
 end
 ```
+
+
+
+<div class="fc">
+<div>
+
+In the code above `create_story` is just a function that accepts a block as a parameter. It just forwards that block into the constructor of the `Story` class. That's where the block gets run.
+</div>
+
+<div style="flex-grow: 2;">
+
+  <img src="blocks.svg" alt="Blocks" width="2000" style="margin: 2rem 0">
+
+</div>
+</div>
+
 The `Story` class holds on to the characters, the scenes, the current scene and the current state of the game.
 
 ```ruby
@@ -112,7 +142,7 @@ class Story
 
 ```
 
-`instance_eval(&block)` is what executes the code in the block passed into the function.
+`instance_eval(&block)` is what runs the code in the block passed into the function.
 
 The characters are represented by a map, which just keeps track of a user friendly version of their name and and the color to display their dialog in.
 
@@ -144,19 +174,29 @@ We need an engine.
 
 The engine is going to be responsible for turning the Ruby scripts into an actual game. 
 
-The engine starts by loads the DSL and uses a function in the DSL script to load the story script.
+Our engine only understand Ruby because of a library called [mruby](https://mruby.org/). mruby lets us include a small Ruby interpreter inside our C++ program. 
+
+We can use this interpreter to call functions and pass objects between C++ and Ruby.
+
+Before the engine can run a story, it needs to understand the DSL that we created. To do that we load our DSL script into the embedded ruby interpreter:
 
 ```cpp
 std::string dsl_code = read_file("story_dsl.rb");
 mrb_load_string(mrb, dsl_code.c_str());
-     
+```
+This lets the interpreter know about our DSL, which is just a Class and a few simple functions.
+
+Next, we can load a story script writting using the DSL:
+
+```cpp
 mrb_funcall(
   mrb, 
   mrb_top_self(mrb), 
   "load_story", 1, 
   mrb_str_new_cstr(mrb, "test_story.rb"));
 ```
-The `load_story` function executes the contents of the story file, which is just a call to `create_story` with a block representing the entire story. 
+
+The `load_story` function simply loads the reads the file and runs it. The file just contains a call to `create_story` with a block representing the entire story:
 
 ```ruby
 def load_story(filename)
@@ -166,9 +206,9 @@ end
 
 ```
 
-The heart of the engine is the code below. It displays timeline of current scene. and then deals with player choices. 
+Now we have fully loaded a `Story` object into memory. It includes all the characters, scenes, choices and dialogs that are present in the script.  
 
-Once the scene if over it checks if it can continue to the next scene, if there is no next scene it displays "The End."
+The engine works through the story once scene at a time. The main loop looks like this:
 
 ```cpp
 void StoryPlayer::play() {
@@ -197,8 +237,33 @@ void StoryPlayer::play() {
     }
 }
 ```
+This loop does three main things:
 
-Running the program looks like this:
+1. It prints the current scene's timeline, which includes all the descriptions and dialogs in the scene.
+2. It handles moving to the next scene, until there are no scenes to move forward to.
+3. It prints the choices the scene contains and asks the player to pick one and handles it accordingly.
+
+
+Because the DSL stores everything in plain Ruby maps and arrays, the engine's job is to look up values in the maps, interpret and display them and move through the scenes based on player input:
+
+```cpp
+mrb_value choices = mrb_utils.get_hash_value(scene, "choices");
+// ....
+int choice;
+do {
+    std::cout << "Choose (1-" << choices_len << "): ";
+    std::cin >> choice;
+} while (choice < 1 || choice > choices_len);
+
+mrb_value chosen_key = mrb_utils.array_entry(choice_keys, choice - 1);
+mrb_value choice_map = mrb_utils.get_hash_value(choices, chosen_key);
+// ...
+current_scene = mrb_utils.symbol_name(mrb_utils.get_hash_value(choice_map, "next_scene"));
+
+```
+<!-- The DSL is used to describe the game, and the engine turns that description into gameplay. -->
+
+Once all that is in place, running the program looks like this:
 
 ![Output Terminal](game.gif)
 
