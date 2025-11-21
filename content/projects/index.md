@@ -23,7 +23,6 @@ title: "projects"
   </div>
 </div>
 </div>
-
 <br>
 
 #### I have worked on
