@@ -13,7 +13,7 @@ tags = [
 
 A visual novel is a type of game where the player reads a lot of text and interacts with the characters. 
 
-I'm not doing a great job of explaining this, lets consult <a href="https://en.wikipedia.org/wiki/Visual_novel">Wikipedia</a>.
+I'm not doing a great job of explaining this, so let's consult <a href="https://en.wikipedia.org/wiki/Visual_novel">Wikipedia</a>.
 
 <div>
   <blockquote cite="https://en.wikipedia.org/wiki/Visual_novel">
