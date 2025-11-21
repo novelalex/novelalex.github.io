@@ -34,7 +34,7 @@ style = "hrdark"
 
 [params]
 title = "novel's site"
-description = "hi i am novel (つ b‿b つ)"
+description = "hi i am novel"
 favicon = "images/favicon.ico"
 dateFormat = "2006-01-02"
 hideMadeWithLine = false
@@ -50,6 +50,10 @@ weight = 10
 [[menu.main]]
 name = "blog"
 pageRef = "/blog"
+weight = 30
+[[menu.main]]
+name = "projects"
+pageRef = "/projects"
 weight = 20
 
 [services.rss]

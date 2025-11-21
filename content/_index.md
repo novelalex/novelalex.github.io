@@ -2,16 +2,16 @@
 title: "novel's site"
 ---
 
-
-<div class="border-box" style="width: 20rem">
+<div class="fc">
+<div class="border-box" style="width: 16rem">
   <p>hi i am novel <span id="face">(つ b‿b つ)</span></p>
 </div>
 
-<div class="border-box">
+<div class="border-box fi2">
 
-* I am currently a video game programming student at Humber College
-* I make [youtube videos](https://www.youtube.com/@mrabiry/videos)
-* I make [music](https://www.youtube.com/watch?v=YFbU_HwXf7M&ab_channel=NovelAlex)
+i make video games and music.
+
+</div>
 
 </div>
 
@@ -20,15 +20,16 @@ title: "novel's site"
 
 you can find me on:
 
-
 * [twitter](https://twitter.com/NovelAlexicus)
 * [github](https://github.com/novelalex)
+* [linkdin](https://www.linkedin.com/in/novel-alex/)
 
 </div>
 
 <div class="border-box fi2">
 
 check out my [blog]({{<ref "blog">}}) while you're here <br> 
+or look at some of my [projects]({{<ref "projects">}}) <br> 
 also here's a list of [quotes and articles]({{<ref "blog/list_of_really_good_quotes">}}) I like
 </div>
 </div>
