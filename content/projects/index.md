@@ -127,11 +127,13 @@ title: "projects"
 
 // Phrases to rotate
 const phrases = [
+  "building",
   "tinkering on",
   "exploring",
   "hacking on",
   "messing with",
-  "working on"
+  "working on",
+  "tinkering with"
 ];
 
 const el = document.getElementById("verb");

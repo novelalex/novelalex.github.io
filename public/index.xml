@@ -448,12 +448,14 @@ name, and I am about 80 percent sure that it does exactly what I want it to do.<
       <guid>https://novelalex.com/people/</guid>
       <description>Here are some cool people you should check out Zoe
 Adriel
-Marouane</description>
+Marouane
+Anda</description>
       <content:encoded><![CDATA[<h4 id="here-are-some-cool-people-you-should-check-out">Here are some cool people you should check out</h4>
 <!-- <div class="border-box fc" style="flex-wrap: wrap; justify-content: flex-start;"> -->
 <p><a href="https://www.n1bz.dev/">Zoe</a></p>
 <p><a href="https://yevagami.github.io/Who-Is-Me/">Adriel</a></p>
 <p><a href="https://marouane.ca/index.html">Marouane</a></p>
+<p><a href="https://www.linkedin.com/in/anda-xie-73941b356/">Anda</a></p>
 </div>
 ]]></content:encoded>
     </item>
@@ -578,11 +580,13 @@ LightLock Co-op puzzle platformer where everybody is chained together. [Showcase
 
 // Phrases to rotate
 const phrases = [
+  "building",
   "tinkering on",
   "exploring",
   "hacking on",
   "messing with",
-  "working on"
+  "working on",
+  "tinkering with"
 ];
 
 const el = document.getElementById("verb");

@@ -12,4 +12,6 @@ title: "people"
 
 [Marouane](https://marouane.ca/index.html)
 
+[Anda](https://www.linkedin.com/in/anda-xie-73941b356/)
+
 </div>
