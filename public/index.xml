@@ -449,13 +449,19 @@ name, and I am about 80 percent sure that it does exactly what I want it to do.<
       <description>Here are some cool people you should check out Zoe
 Adriel
 Marouane
-Anda</description>
+Anda
+Maya</description>
       <content:encoded><![CDATA[<h4 id="here-are-some-cool-people-you-should-check-out">Here are some cool people you should check out</h4>
-<!-- <div class="border-box fc" style="flex-wrap: wrap; justify-content: flex-start;"> -->
+<div class="fc" style="flex-wrap: wrap; justify-content: flex-start;"> 
+<div class="big-boss" >
 <p><a href="https://www.n1bz.dev/">Zoe</a></p>
 <p><a href="https://yevagami.github.io/Who-Is-Me/">Adriel</a></p>
 <p><a href="https://marouane.ca/index.html">Marouane</a></p>
+</div>
+<div class="big-boss">
 <p><a href="https://www.linkedin.com/in/anda-xie-73941b356/">Anda</a></p>
+<p><a href="https://mayaharry.com/">Maya</a></p>
+</div>
 </div>
 ]]></content:encoded>
     </item>

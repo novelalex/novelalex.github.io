@@ -67,6 +67,12 @@ main > p:first-child time {
   margin: 1rem 0;
 }
 
+.big-boss {
+  border-width: 1px;
+  padding: 0.25rem 1rem;
+  margin: 1rem 0;
+}
+
 .card {
   position: relative;
   width: 50%;
