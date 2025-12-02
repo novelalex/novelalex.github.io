@@ -25,6 +25,9 @@ tags = [
 *By Robert Nystrom*
 
 [Red Blob Games](https://www.redblobgames.com/) - explanations of algorithms for games 
+
+[Poly Haven](https://polyhaven.com/) - tons of freely available textures and models
+
 <br> 
 *By Amin Patel*
 
