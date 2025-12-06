@@ -24,14 +24,10 @@ tags = [
 [Game Programming Patterns](https://gameprogrammingpatterns.com/contents.html) - design patterns for games <br>
 *By Robert Nystrom*
 
-[Red Blob Games](https://www.redblobgames.com/) - explanations of algorithms for games 
-
-[Poly Haven](https://polyhaven.com/) - tons of freely available textures and models
-
-[ambientCG](https://ambientcg.com/) - more freely available textures, they dont have as many models
-
-<br> 
+[Red Blob Games](https://www.redblobgames.com/) - explanations of algorithms for games<br> 
 *By Amin Patel*
+
+[GPU Gems](https://developer.nvidia.com/gpugems/gpugems/contributors) - the GPU Gems books are available freely on nvidia's webiste
 
 [3D Math Primer for Graphics and Game Development](https://gamemath.com/book/) <br>
 *By Fletcher Dunn and Ian Parbery*
