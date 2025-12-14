@@ -24,6 +24,10 @@ I'm not doing a great job of explaining this, so let's consult <a href="https://
   </blockquote>
 </div>
 
+
+<!--more-->
+
+
 <figure>
   <img src="steins.png" alt="Steins;Gate" width="400">
   <figcaption>Steins;Gate (2009)</figcaption>

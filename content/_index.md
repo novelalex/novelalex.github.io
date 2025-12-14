@@ -35,6 +35,8 @@ also here's a list of [articles, books and quotes]({{<ref "other/list_of_really_
 </div>
 
 
+
+
 <script>
   const faceElement = document.getElementById('face');
   const faces = ["(つ b‿b つ)", "(つ –‿– つ)"];

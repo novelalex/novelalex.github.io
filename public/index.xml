@@ -16,9 +16,17 @@
       <link>https://novelalex.com/an_attempt_at_a_vn_engine/</link>
       <pubDate>Thu, 20 Nov 2025 00:00:00 +0000</pubDate><author>novelalex29@outlook.com (Novel Alex)</author>
       <guid>https://novelalex.com/an_attempt_at_a_vn_engine/</guid>
-      <description>Towards a Visual Novel A visual novel is a type of game where the player reads a lot of text and interacts with the characters.
-I&amp;rsquo;m not doing a great job of explaining this, so let&amp;rsquo;s consult Wikipedia.
-A visual novel (VN) is a form of digital interactive fiction.They combine a textual narrative with static or animated illustrations and a varying degree of interactivity.Steins;Gate (2009)So visual novels are games with loads of text.</description>
+      <description>&lt;h3 id=&#34;towards-a-visual-novel&#34;&gt;Towards a Visual Novel&lt;/h3&gt;
+&lt;p&gt;A visual novel is a type of game where the player reads a lot of text and interacts with the characters.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m not doing a great job of explaining this, so let&amp;rsquo;s consult &lt;a href=&#34;https://en.wikipedia.org/wiki/Visual_novel&#34;&gt;Wikipedia&lt;/a&gt;.&lt;/p&gt;
+&lt;div&gt;
+  &lt;blockquote cite=&#34;https://en.wikipedia.org/wiki/Visual_novel&#34;&gt;
+    &lt;p&gt;
+      A visual novel (VN) is a form of digital interactive fiction.
+      They combine a textual narrative with static or animated illustrations and a varying degree of interactivity.
+    &lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/div&gt;</description>
       <content:encoded><![CDATA[<h3 id="towards-a-visual-novel">Towards a Visual Novel</h3>
 <p>A visual novel is a type of game where the player reads a lot of text and interacts with the characters.</p>
 <p>I&rsquo;m not doing a great job of explaining this, so let&rsquo;s consult <a href="https://en.wikipedia.org/wiki/Visual_novel">Wikipedia</a>.</p>
@@ -268,7 +276,7 @@ A visual novel (VN) is a form of digital interactive fiction.They combine a tex
 resources gamedev Game Programming Patterns - design patterns for games By Robert Nystrom
 Red Blob Games - explanations of algorithms for games
 By Amin Patel
-GPU Gems - the GPU Gems books are available freely on nvidia&amp;rsquo;s webiste
+GPU Gems - the GPU Gems books are freely available on nvidia&amp;rsquo;s webiste
 3D Math Primer for Graphics and Game Development By Fletcher Dunn and Ian Parbery</description>
       <content:encoded><![CDATA[<h3 id="quotes">quotes</h3>
 <p>&ldquo;complexity very, very bad&rdquo; <br>
@@ -281,7 +289,7 @@ GPU Gems - the GPU Gems books are available freely on nvidia&amp;rsquo;s webiste
 <em>By Robert Nystrom</em></p>
 <p><a href="https://www.redblobgames.com/">Red Blob Games</a> - explanations of algorithms for games<br>
 <em>By Amin Patel</em></p>
-<p><a href="https://developer.nvidia.com/gpugems/gpugems/contributors">GPU Gems</a> - the GPU Gems books are available freely on nvidia&rsquo;s webiste</p>
+<p><a href="https://developer.nvidia.com/gpugems/gpugems/contributors">GPU Gems</a> - the GPU Gems books are freely available on nvidia&rsquo;s webiste</p>
 <p><a href="https://gamemath.com/book/">3D Math Primer for Graphics and Game Development</a> <br>
 <em>By Fletcher Dunn and Ian Parbery</em></p>
 <h4 id="webdev">webdev</h4>

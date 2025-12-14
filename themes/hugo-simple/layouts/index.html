@@ -1,3 +1,33 @@
 {{ define "main" }}
   {{ .Content }}
+
+   {{ if .IsHome }}
+
+  {{ $posts := where .Site.RegularPages "Section" "blog" }}
+  {{ with first 1 (sort $posts "Date" "desc") }}
+    {{ range . }}
+
+     
+
+        <article class="border-box" style="border-radius: 0px; padding-bottom: 1.5rem; padding-top: 1rem;">
+  <strong><a href="{{ .RelPermalink }}">Go read my blog post from {{ .Date.Format "Jan 2, 2006" }}:</a></strong> 
+  <!-- <h3>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+  </h3> -->
+
+  <!-- <p class="post-meta">
+    {{ .Date.Format "Jan 2, 2006" }}
+  </p> -->
+
+  <div style="position: relative; max-height: 20rem; overflow: hidden; margin-bottom: 1rem;">
+    <div style="position: relative; z-index: 1;">
+      {{ .Summary | replaceRE "<h[1-6][^>]*>.*?</h[1-6]>" "" | replaceRE "(<img[^>]+src=\")([^\"]+)(\")" (printf "$1%s$2$3" .RelPermalink) | safeHTML }}
+    </div>
+    <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to bottom, #07070700, #070707ff); z-index: 2; pointer-events: none;"></div>
+  </div>
+  <a href="{{ .RelPermalink }}">Read more →</a>
+</article>
+    {{ end }}
+  {{ end }}
+{{ end }}
 {{ end }}

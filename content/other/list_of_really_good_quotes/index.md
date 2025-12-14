@@ -27,7 +27,7 @@ tags = [
 [Red Blob Games](https://www.redblobgames.com/) - explanations of algorithms for games<br> 
 *By Amin Patel*
 
-[GPU Gems](https://developer.nvidia.com/gpugems/gpugems/contributors) - the GPU Gems books are available freely on nvidia's webiste
+[GPU Gems](https://developer.nvidia.com/gpugems/gpugems/contributors) - the GPU Gems books are freely available on nvidia's webiste
 
 [3D Math Primer for Graphics and Game Development](https://gamemath.com/book/) <br>
 *By Fletcher Dunn and Ian Parbery*
