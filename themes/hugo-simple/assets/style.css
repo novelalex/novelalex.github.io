@@ -69,8 +69,8 @@ main > p:first-child time {
 
 .big-boss {
   border-width: 1px;
-  padding: 0.25rem 1rem;
-  margin: 1rem 0;
+  padding: 0.0rem 1rem;
+  margin: 0rem 0;
 }
 
 .card {
