@@ -16,6 +16,8 @@ tags = [
 "People's dreams never end!" <br>
 *\- Marshall D. Teach, One Piece*
 
+ ...The question whether computers can think. The question is just as relevant and just as meaningful as the question whether submarines can swim. <br>
+*\- Edsger W. Dijkstra*
 
 ### resources
 
