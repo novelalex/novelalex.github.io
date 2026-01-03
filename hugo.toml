@@ -41,7 +41,7 @@ hideMadeWithLine = false
 hideRSSLink = true
 [params.author]
 name = "Novel Alex"
-email = "novelalex29@outlook.com"
+email = ""
 
 [[menu.main]]
 name = "home"
