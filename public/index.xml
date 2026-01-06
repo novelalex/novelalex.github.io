@@ -7,8 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 Novel Boby Alex</copyright>
-    <lastBuildDate>Thu, 20 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Jan 2026 10:02:00 +0000</lastBuildDate>
     <atom:link href="https://novelalex.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Streaming, Accountability, Distractions</title>
+      <link>https://novelalex.com/minis/2026/january/streaming_accountability_distractions/</link>
+      <pubDate>Tue, 06 Jan 2026 10:02:00 +0000</pubDate>
+      <guid>https://novelalex.com/minis/2026/january/streaming_accountability_distractions/</guid>
+      <description>I recently started streaming on twitch while programming. I found that this is a great way to hold myself accountable and avoid distractions while doing work.
+You can catch me live at ttv/novelicus.</description>
+      <content:encoded><![CDATA[<p>I recently started streaming on twitch while programming. I found that this is a great way to hold myself accountable and avoid distractions while doing work.</p>
+<p>You can catch me live at <a href="https://www.twitch.tv/novelicus">ttv/novelicus</a>.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>I want to start a youtube channel</title>
+      <link>https://novelalex.com/minis/2026/january/i_want_to_start_a_youtube_channel/</link>
+      <pubDate>Tue, 06 Jan 2026 09:26:00 +0000</pubDate>
+      <guid>https://novelalex.com/minis/2026/january/i_want_to_start_a_youtube_channel/</guid>
+      <description>I want to make youtube videos, but I&amp;rsquo;m struggling to decide what to make videos about. I&amp;rsquo;ve got a general idea of the content I want to make. I&amp;rsquo;d like to focus on programming and building applications and games, but I&amp;rsquo;m having trouble honing in on a specific video idea.</description>
+      <content:encoded><![CDATA[<p>I want to make youtube videos, but I&rsquo;m struggling to decide what to make videos about. I&rsquo;ve got a general idea of the content I want to make. I&rsquo;d like to focus on programming and building applications and games, but I&rsquo;m having trouble honing in on a specific video idea.</p>
+]]></content:encoded>
+    </item>
     <item>
       <title>an attempt at a visual novel engine</title>
       <link>https://novelalex.com/an_attempt_at_a_vn_engine/</link>

@@ -1,0 +1,88 @@
+{{ define "main" }}
+  {{ .Content }}
+
+  {{ if .IsHome }}
+
+  {{/* Latest Mini Section */}}
+  {{ $minis := where .Site.RegularPages "Section" "minis" }}
+  {{ with first 1 (sort $minis "Date" "desc") }}
+    <style>
+      .mini-post {
+        border: 1px solid;
+        border-radius: 0px;
+        padding: 1rem 1.25rem;
+        background: var(--bg);
+      }
+      .mini-date {
+        color: var(--text-light);
+        font-size: 0.85rem;
+      }
+      .mini-content {
+        margin: 0;
+        font-size: 1rem;
+      }
+      .mini-content p:first-child {
+        margin-top: 0;
+      }
+      .mini-content p:last-child {
+        margin-bottom: 0;
+      }
+      .mini-footer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 0.5rem;
+        margin-top: 0.75rem;
+        font-size: 0.85rem;
+      }
+      .mini-footer a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      .mini-footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+    
+    <div style="margin-bottom: 1.5rem; margin-top: 1.5rem;">
+      {{ range . }}
+        <article class="mini-post" style="margin-top: 0.5rem;">
+            <strong><a href="{{ relURL "minis" }}">Latest mini:</a></strong>
+          <div class="mini-content" style="margin-top: 1rem;">
+            {{ .Content }}
+          </div>
+          <div class="mini-footer">
+            <time class="mini-date" datetime="{{ .Date.Format "2006-01-02T15:04:05" }}">
+              {{ .Date.Format "Jan 2, 2006 · 3:04 PM" }}
+            </time>
+            {{ with .Params.minitags }}
+              {{ range . }}
+                <a href="{{ relURL (printf "minitags/%s" .) }}">#{{ . }}</a>
+              {{ end }}
+            {{ end }}
+          </div>
+        </article>
+      {{ end }}
+    </div>
+  {{ end }}
+
+  {{/* Latest Blog Post Section */}}
+  {{ $posts := where .Site.RegularPages "Section" "blog" }}
+  {{ with first 1 (sort $posts "Date" "desc") }}
+    {{ range . }}
+      <article class="border-box" style="border-radius: 0px; padding-bottom: 1.5rem; padding-top: 1rem;">
+  <strong><a href="{{ .RelPermalink }}">Go read my blog post from {{ .Date.Format "Jan 2, 2006" }}:</a></strong> 
+
+  <div style="position: relative; max-height: 20rem; overflow: hidden; margin-bottom: 1rem;">
+    <div style="position: relative; z-index: 1;">
+      {{ .Summary | replaceRE "<h[1-6][^>]*>.*?</h[1-6]>" "" | replaceRE "(<img[^>]+src=\")([^\"]+)(\")" (printf "$1%s$2$3" .RelPermalink) | safeHTML }}
+    </div>
+    <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to bottom, #07070700, #070707ff); z-index: 2; pointer-events: none;"></div>
+  </div>
+  <a href="{{ .RelPermalink }}">Read more →</a>
+</article>
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ end }}
+
