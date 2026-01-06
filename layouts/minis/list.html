@@ -1,0 +1,64 @@
+{{ define "main" }}
+  <style>
+    .minis-layout {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+    }
+    .minis-posts {
+      flex: 1;
+    }
+    .minis-explanation {
+      flex: 0 0 280px;
+      border: none;
+      background: transparent;
+    }
+    @media (max-width: 768px) {
+      .minis-layout {
+        flex-direction: column-reverse;
+      }
+      .minis-explanation {
+        flex: none;
+      }
+    }
+  </style>
+  <content>
+    <div class="minis-layout">
+      <div class="minis-posts">
+        {{ if .Data.Singular }}
+          <h3>Filtering for "{{ .Title }}"</h3>
+          <small>
+            <a href="{{ relURL "minis" }}">Remove filter</a>
+          </small>
+        {{ end }}
+        {{ if or .Paginator.HasPrev .Paginator.HasNext }}
+          {{- partial "pagination.html" . -}}
+        {{ end }}
+        <ul class="blog-posts">
+          {{ range .Paginator.Pages }}
+            <li>
+              <span>
+                <i>
+                  <time datetime="{{ .Date.Format "2006-01-02" }}" pubdate>
+                    {{ .Date.Format (default "2006-01-02" .Site.Params.dateFormat) }}
+                  </time>
+                </i>
+              </span>
+              {{ if .Params.link }}
+                <a href="{{ .Params.link }}" target="_blank">{{ .Title }} ↪</a>
+              {{ else }}
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+              {{ end }}
+            </li>
+          {{ else }}
+            <li>No posts yet</li>
+          {{ end }}
+        </ul>
+      </div>
+      <aside class="minis-explanation">
+        {{ .Content }}
+      </aside>
+    </div>
+  </content>
+{{ end }}
+
