@@ -66,7 +66,12 @@
             </time>
             {{ with .Params.minitags }}
               {{ range . }}
-                <a href="{{ relURL (printf "minitags/%s" .) }}">#{{ . }}</a>
+                {{- $tag := . -}}
+                {{- with $.Site.GetPage (printf "/minitags/%s" $tag) -}}
+                  <a href="{{ .RelPermalink }}">#{{ $tag }}</a>
+                {{- else -}}
+                  <a href="{{ relURL (printf "minis/%s" (urlize $tag)) }}">#{{ $tag }}</a>
+                {{- end -}}
               {{ end }}
             {{ end }}
           </div>
