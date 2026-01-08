@@ -4,12 +4,12 @@ title: "novel's site"
 
 <div class="fc">
 <div class="border-box" style="width: 16rem">
-  <p>hi i am novel <span id="face">(つ b‿b つ)</span></p>
+  <p>Hi, I am Novel <span id="face">(つ b‿b つ)</span></p>
 </div>
 
 <div class="border-box fi2">
 
-i am a video game programmer.
+I am a video game programmer.
 
 </div>
 
@@ -18,19 +18,19 @@ i am a video game programmer.
 <div class="fc">
 <div class="border-box">
 
-you can find me on:
+You can find me on:
 
-* [twitter](https://twitter.com/NovelAlexicus)
-* [github](https://github.com/novelalex)
-* [linkdin](https://www.linkedin.com/in/novel-alex/)
+* [Twitter](https://twitter.com/NovelAlexicus)
+* [Github](https://github.com/novelalex)
+* [Linkdin](https://www.linkedin.com/in/novel-alex/)
 
 </div>
 
 <div class="border-box fi2">
 
-check out my [blog]({{<ref "blog">}}) while you're here <br> 
-or look at some of my [projects]({{<ref "projects">}}) <br> 
-also here's a list of [quotes, books, and articles]({{<ref "other/list_of_really_good_quotes">}}) I like
+Check out my [blog]({{<ref "blog">}}) while you're here. <br> 
+Or look at some of my [projects]({{<ref "projects">}}). <br> 
+Also here's a list of [quotes, books, and articles]({{<ref "other/list_of_really_good_quotes">}}) I like.
 </div>
 </div>
 
