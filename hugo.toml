@@ -43,7 +43,7 @@ hideMadeWithLine = false
 hideRSSLink = true
 [params.author]
 name = "Novel Alex"
-email = ""
+email = "novelalex@proton.me"
 
 [[menu.main]]
 name = "home"

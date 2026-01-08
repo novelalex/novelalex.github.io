@@ -6,13 +6,15 @@
     <description>Recent content on novel&#39;s site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <managingEditor>novelalex@proton.me (Novel Alex)</managingEditor>
+    <webMaster>novelalex@proton.me (Novel Alex)</webMaster>
     <copyright>© 2025 Novel Boby Alex</copyright>
     <lastBuildDate>Tue, 06 Jan 2026 10:02:00 +0000</lastBuildDate>
     <atom:link href="https://novelalex.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Streaming, Accountability, Distractions</title>
       <link>https://novelalex.com/minis/2026/january/streaming_accountability_distractions/</link>
-      <pubDate>Tue, 06 Jan 2026 10:02:00 +0000</pubDate>
+      <pubDate>Tue, 06 Jan 2026 10:02:00 +0000</pubDate><author>novelalex@proton.me (Novel Alex)</author>
       <guid>https://novelalex.com/minis/2026/january/streaming_accountability_distractions/</guid>
       <description>I recently started streaming on twitch while programming. I found that this is a great way to hold myself accountable and avoid distractions while doing work.
 You can catch me live at ttv/novelicus.</description>
@@ -23,7 +25,7 @@ You can catch me live at ttv/novelicus.</description>
     <item>
       <title>I want to start a youtube channel</title>
       <link>https://novelalex.com/minis/2026/january/i_want_to_start_a_youtube_channel/</link>
-      <pubDate>Tue, 06 Jan 2026 09:26:00 +0000</pubDate>
+      <pubDate>Tue, 06 Jan 2026 09:26:00 +0000</pubDate><author>novelalex@proton.me (Novel Alex)</author>
       <guid>https://novelalex.com/minis/2026/january/i_want_to_start_a_youtube_channel/</guid>
       <description>I want to make youtube videos, but I&amp;rsquo;m struggling to decide what to make videos about. I&amp;rsquo;ve got a general idea of the content I want to make. I&amp;rsquo;d like to focus on programming and building applications and games, but I&amp;rsquo;m having trouble honing in on a specific video idea.</description>
       <content:encoded><![CDATA[<p>I want to make youtube videos, but I&rsquo;m struggling to decide what to make videos about. I&rsquo;ve got a general idea of the content I want to make. I&rsquo;d like to focus on programming and building applications and games, but I&rsquo;m having trouble honing in on a specific video idea.</p>
@@ -32,7 +34,7 @@ You can catch me live at ttv/novelicus.</description>
     <item>
       <title>an attempt at a visual novel engine</title>
       <link>https://novelalex.com/an_attempt_at_a_vn_engine/</link>
-      <pubDate>Thu, 20 Nov 2025 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 20 Nov 2025 00:00:00 +0000</pubDate><author>novelalex@proton.me (Novel Alex)</author>
       <guid>https://novelalex.com/an_attempt_at_a_vn_engine/</guid>
       <description>&lt;h3 id=&#34;towards-a-visual-novel&#34;&gt;Towards a Visual Novel&lt;/h3&gt;
 &lt;p&gt;A visual novel is a type of game where the player reads a lot of text and interacts with the characters.&lt;/p&gt;
@@ -287,7 +289,7 @@ You can catch me live at ttv/novelicus.</description>
     <item>
       <title>a collection of quotes, books and articles i like</title>
       <link>https://novelalex.com/other/list_of_really_good_quotes/</link>
-      <pubDate>Fri, 24 May 2024 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 24 May 2024 00:00:00 +0000</pubDate><author>novelalex@proton.me (Novel Alex)</author>
       <guid>https://novelalex.com/other/list_of_really_good_quotes/</guid>
       <description>quotes &amp;ldquo;complexity very, very bad&amp;rdquo; - Carson Gross, The Grug Brained Developer
 &amp;ldquo;People&amp;rsquo;s dreams never end!&amp;rdquo; - Marshall D. Teach, One Piece
@@ -321,7 +323,7 @@ Red Blob Games - explanations of algorithms for games</description>
     <item>
       <title>making spritesheets quickly</title>
       <link>https://novelalex.com/making_spritesheets_quickly/</link>
-      <pubDate>Fri, 24 May 2024 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 24 May 2024 00:00:00 +0000</pubDate><author>novelalex@proton.me (Novel Alex)</author>
       <guid>https://novelalex.com/making_spritesheets_quickly/</guid>
       <description>Me and my friend started working on a game recently, where he is working on the art, and I am doing the programming. Our general workflow for putting an animation into Godot looks like this: He exports an image sequence from Animate and sends it to me, I then import those images into Aseprite as an animation then I export this animation as a sprite sheet and then finally import in into Godot.</description>
       <content:encoded><![CDATA[<p>Me and my friend started working on a game recently, where he is working on the art, and I am doing the programming. Our
@@ -471,7 +473,7 @@ name, and I am about 80 percent sure that it does exactly what I want it to do.<
     <item>
       <title></title>
       <link>https://novelalex.com/wiki/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>novelalex@proton.me (Novel Alex)</author>
       <guid>https://novelalex.com/wiki/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
@@ -479,7 +481,7 @@ name, and I am about 80 percent sure that it does exactly what I want it to do.<
     <item>
       <title>people</title>
       <link>https://novelalex.com/people/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>novelalex@proton.me (Novel Alex)</author>
       <guid>https://novelalex.com/people/</guid>
       <description>Here are some cool people you should check out Zoe
 Adriel
@@ -503,7 +505,7 @@ Maya</description>
     <item>
       <title>projects</title>
       <link>https://novelalex.com/projects/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>novelalex@proton.me (Novel Alex)</author>
       <guid>https://novelalex.com/projects/</guid>
       <description>I’m currently building Rent Dungeon A first person dungeon crawler
 Gaussian Splatting Exploration Learning more about gaussian splatting by building a renderer based on the paper
