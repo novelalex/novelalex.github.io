@@ -99,16 +99,6 @@
     border-radius: 0;
   }
 
-  @media only screen and (max-width: 720px) {
-    .fc {
-      flex-direction: column;
-    }
-
-    .card {
-      width: 100%;
-    }
-  }
-
   .overlay {
     position: absolute;
     inset: 0;
