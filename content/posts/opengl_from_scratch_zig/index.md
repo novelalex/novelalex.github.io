@@ -35,7 +35,7 @@ pub fn load_functions() !void {
 
  > The `platform.gl_get_proc_address` function wraps the call to `wglGetProcAddress` with some extra steps[^2].
 
-But that's a lot of typing. Won't be cool and awesome if I could loop through every declaration in a struct, check if its a function pointer, turn the name of the declaration into a string, attach `gl` in front of it, and pass it into `gl_get_proc_address`. 
+But that's a lot of typing. Won't be cool and awesome if I could loop through every declaration in a struct, check if it's a function pointer, turn the name of the declaration into a string, attach `gl` in front of it, and pass it into `gl_get_proc_address`. 
 
 Not something you can do without complicated macros or code generation, right?
 

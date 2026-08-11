@@ -58,7 +58,7 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span><span style="color:#eceff4">}</span>
 </span></span></code></pre></div><blockquote>
 <p>The <code>platform.gl_get_proc_address</code> function wraps the call to <code>wglGetProcAddress</code> with some extra steps<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p></blockquote>
-<p>But that&rsquo;s a lot of typing. Won&rsquo;t be cool and awesome if I could loop through every declaration in a struct, check if its a function pointer, turn the name of the declaration into a string, attach <code>gl</code> in front of it, and pass it into <code>gl_get_proc_address</code>.</p>
+<p>But that&rsquo;s a lot of typing. Won&rsquo;t be cool and awesome if I could loop through every declaration in a struct, check if it&rsquo;s a function pointer, turn the name of the declaration into a string, attach <code>gl</code> in front of it, and pass it into <code>gl_get_proc_address</code>.</p>
 <p>Not something you can do without complicated macros or code generation, right?</p>
 <h2 id="the-solution">The Solution</h2>
 <p>See if you can understand the following code:</p>
