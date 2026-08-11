@@ -101,7 +101,7 @@ const full_name = comptime std.fmt.comptimePrint(
 );
 ```
 
-Here I'm formatting a string at compile time. I take the name of the declaration, lets say `"Clear"` for example, and attach `"gl"` to the front to make `"glClear"`. 
+I'm formatting a string at compile time. I take the name of the declaration, lets say `"Clear"` for example, and attach `"gl"` to the front to make `"glClear"`. 
 
 
 ```zig
@@ -117,7 +117,7 @@ To get a useable value, I can unwraped it with `orelse` giving me a `*anyopaque`
 
 The `@ptrCast` takes the resulting `*anyopaque`  and casts it to the type of the declaration. 
 
-I used `@field` earlier to access a value by name, but it can also be used to set a value. Here, I'm using it to assign the function pointer to the decleration in `gl`. 
+I used `@field` earlier to access a value by name, but it can also be used to set a value. I'm using it to assign the function pointer to the decleration in the `gl` struct. 
 
 Now I can define more OpenGL functions and start using them.
 
