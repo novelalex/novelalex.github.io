@@ -1,6 +1,7 @@
 {{ define "main" }}
   {{ .Content }}
   {{ range .Pages }}
+
   <div class="posts-list">
     <a href="{{ .RelPermalink }}">{{ .LinkTitle }}  </a>
     {{.Date | time.Format ":date_medium"}}
