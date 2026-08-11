@@ -150,7 +150,7 @@ I only started writing in Zig a few days ago and that didn't stop me from pickin
 
 I hope you give [Zig](https://ziglang.org/) a try.
 
-> This article has handwritten by me, if you notice any errors please direct them to [my email](mailto:novelalex29@outlook.com).
+> This article was handwritten by me, if you notice any errors please direct them to [my email](mailto:novelalex29@outlook.com).
 
 [^1]: I'm oversimplifying to focus on the topic at hand. For the details see: <https://wikis.khronos.org/opengl/Creating_an_OpenGL_Context_(WGL)>.
 
