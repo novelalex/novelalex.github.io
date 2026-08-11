@@ -32,7 +32,7 @@ main {
 }
 
 footer {
-    padding-top: 5em;
+    padding-top: 0.5em;
     padding-bottom: 3em;
     font-family: "Inter", sans-serif;
     color: #999999;
@@ -68,7 +68,7 @@ a.site-title-link:hover {
 .navbar-list {
     list-style-type: none;
     padding-left: 0;
-    padding-top: 4rem;
+    padding-top: 3rem;
 }
 
 .navbar-item {
