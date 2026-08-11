@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="{{  .Site.Language.LanguageName }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body>
+  <header>
+    {{ partial "header.html" . }}
+  </header>
+  <main class = "content">
+    {{ block "main" . }}
+      This will be replaced with content from the
+      corresponding "define" action found in the template
+      to which this _base_ template is applied.
+    {{ end }}
+  </main>
+  <footer>
+    {{ partial "footer.html" . }}
+  </footer>
+</body>
+</html>

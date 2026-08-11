@@ -1,0 +1,9 @@
+
+<nav class="navbar">
+    <ol class="navbar-list">
+         {{ range .Site.Menus.main }}
+                 <li class="navbar-item"><a class="navbar-link" href="{{ .URL }}"> {{ .Name }} </a></li>
+          {{ end }}
+    </ol>
+</nav>
+<h1 class="site-title"><a class="site-title-link" href="/">Novel Boby Alex</a> </h1>

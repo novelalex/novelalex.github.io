@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+<title>Loading OpenGL functions from scratch with Zig&nbsp;-&nbsp;Novel Boby Alex</title>
+
+<link rel="stylesheet" href="https://novelalex.com/styles/dark.css">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libertinus+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <header>
+    
+<nav class="navbar">
+    <ol class="navbar-list">
+         
+                 <li class="navbar-item"><a class="navbar-link" href="/"> about </a></li>
+          
+                 <li class="navbar-item"><a class="navbar-link" href="/posts/"> posts </a></li>
+          
+                 <li class="navbar-item"><a class="navbar-link" href="/etc/"> etc </a></li>
+          
+    </ol>
+</nav>
+<h1 class="site-title"><a class="site-title-link" href="/">Novel Boby Alex</a> </h1>
+
+  </header>
+  <main class = "content">
+    
+    <div class="title-row">
+          <h1>Loading OpenGL functions from scratch with Zig</h1>
+          Aug 11, 2026
+    </div>
+
+  <p>Zig metaprogramming is cool and awesome.</p>
+<p>It&rsquo;s also useful.</p>
+<h2 id="the-problem">The Problem</h2>
+<p>I&rsquo;m building a desktop application from scratch and I want to do hardware rendering with OpenGL.</p>
+<p>OpenGL is not a typical library. It can&rsquo;t be statically linked, nor can it be shipped as a dynamic library. OpenGL is an API specification that different vendors provide an implementation for.</p>
+<p>To actually call OpenGL functions, they have to be loaded at runtime. There are libraries like <a href="https://glew.sourceforge.net/">GLEW</a> or <a href="https://github.com/Dav1dde/glad">GLAD</a> that can do this automatically, but I&rsquo;m not using them because I&rsquo;m trying to keep dependecies as low as possible.</p>
+<p>To load an OpenGL function manually on Windows I can call <code>wglGetProcAddress</code><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> with the name of the function and it will return a pointer to the function. I just have to write the declaration for each function pointer and then load them at runtime.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zig" data-lang="zig"><span style="display:flex;"><span><span style="color:#616e87;font-style:italic">// This will store the function pointer.
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span><span style="color:#81a1c1;font-weight:bold">pub</span> <span style="color:#81a1c1;font-weight:bold">var</span> Clear<span style="color:#81a1c1">:</span> <span style="color:#81a1c1">*</span><span style="color:#81a1c1;font-weight:bold">const</span> <span style="color:#81a1c1;font-weight:bold">fn</span> <span style="color:#eceff4">(</span>mask<span style="color:#81a1c1">:</span> <span style="color:#81a1c1">u32</span><span style="color:#eceff4">)</span> callconv<span style="color:#eceff4">(.</span>c<span style="color:#eceff4">)</span> <span style="color:#81a1c1">void</span> <span style="color:#81a1c1">=</span> <span style="color:#81a1c1;font-weight:bold">undefined</span><span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic">// rest of the functions...
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic">// The &#39;!&#39; before void means that it can return either an error or void.
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span><span style="color:#81a1c1;font-weight:bold">pub</span> <span style="color:#81a1c1;font-weight:bold">fn</span> load_functions<span style="color:#eceff4">()</span> <span style="color:#81a1c1">!</span><span style="color:#81a1c1">void</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#616e87;font-style:italic">// If the wglGetProcAddress call returns null we return an error.
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>    Clear <span style="color:#81a1c1">=</span> <span style="color:#81a1c1">@ptrCast</span><span style="color:#eceff4">(</span>platform<span style="color:#eceff4">.</span>gl_get_proc_address<span style="color:#eceff4">(</span><span style="color:#a3be8c">&#34;glClear&#34;</span><span style="color:#eceff4">)</span> <span style="color:#81a1c1;font-weight:bold">orelse</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#81a1c1;font-weight:bold">return</span> <span style="color:#81a1c1;font-weight:bold">error</span><span style="color:#eceff4">.</span>Function_Not_Found<span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">});</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#616e87;font-style:italic">// rest of the functions...
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span><span style="color:#eceff4">}</span>
+</span></span></code></pre></div><blockquote>
+<p>The <code>platform.gl_get_proc_address</code> function wraps the call to <code>wglGetProcAddress</code> with some extra steps<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p></blockquote>
+<p>But that&rsquo;s a lot of typing. Won&rsquo;t be cool and awesome if I could loop through every declaration in a struct, check if its a function pointer, turn the name of the declaration into a string, attach <code>gl</code> in front of it, and pass it into <code>gl_get_proc_address</code>.</p>
+<p>Not something you can do without complicated macros or code generation, right?</p>
+<h2 id="the-solution">The Solution</h2>
+<p>See if you can understand the following code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zig" data-lang="zig"><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">pub</span> <span style="color:#81a1c1;font-weight:bold">const</span> gl <span style="color:#81a1c1">=</span> <span style="color:#81a1c1;font-weight:bold">struct</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1;font-weight:bold">pub</span> <span style="color:#81a1c1;font-weight:bold">var</span> Clear<span style="color:#81a1c1">:</span> <span style="color:#81a1c1">*</span><span style="color:#81a1c1;font-weight:bold">const</span> <span style="color:#81a1c1;font-weight:bold">fn</span> <span style="color:#eceff4">(</span>mask<span style="color:#81a1c1">:</span> <span style="color:#81a1c1">u32</span><span style="color:#eceff4">)</span> callconv<span style="color:#eceff4">(.</span>c<span style="color:#eceff4">)</span> <span style="color:#81a1c1">void</span> <span style="color:#81a1c1">=</span> <span style="color:#81a1c1;font-weight:bold">undefined</span><span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#616e87;font-style:italic">// rest of the functions...
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1;font-weight:bold">pub</span> <span style="color:#81a1c1;font-weight:bold">const</span> COLOR_BUFFER_BIT <span style="color:#81a1c1">=</span> <span style="color:#b48ead">0x00004000</span><span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#616e87;font-style:italic">// rest of the constants...
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span><span style="color:#eceff4">};</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">fn</span> load_all_functions<span style="color:#eceff4">()</span> <span style="color:#81a1c1">!</span><span style="color:#81a1c1">void</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1;font-weight:bold">inline</span> <span style="color:#81a1c1;font-weight:bold">for</span> <span style="color:#eceff4">(</span><span style="color:#81a1c1">@typeInfo</span><span style="color:#eceff4">(</span>gl<span style="color:#eceff4">).</span><span style="color:#bf616a">@</span><span style="color:#a3be8c">&#34;struct&#34;</span><span style="color:#eceff4">.</span>decls<span style="color:#eceff4">)</span> <span style="color:#81a1c1">|</span>declaration<span style="color:#81a1c1">|</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#81a1c1;font-weight:bold">const</span> info <span style="color:#81a1c1">=</span> <span style="color:#81a1c1">@typeInfo</span><span style="color:#eceff4">(</span><span style="color:#81a1c1">@TypeOf</span><span style="color:#eceff4">(</span><span style="color:#81a1c1">@field</span><span style="color:#eceff4">(</span>gl<span style="color:#eceff4">,</span> declaration<span style="color:#eceff4">.</span>name<span style="color:#eceff4">)));</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#81a1c1;font-weight:bold">if</span> <span style="color:#eceff4">(</span>info <span style="color:#81a1c1">==</span> <span style="color:#eceff4">.</span>pointer <span style="color:#81a1c1;font-weight:bold">and</span> <span style="color:#81a1c1">@typeInfo</span><span style="color:#eceff4">(</span>info<span style="color:#eceff4">.</span>pointer<span style="color:#eceff4">.</span>child<span style="color:#eceff4">)</span> <span style="color:#81a1c1">==</span> <span style="color:#eceff4">.</span><span style="color:#bf616a">@</span><span style="color:#a3be8c">&#34;fn&#34;</span><span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1;font-weight:bold">const</span> full_name <span style="color:#81a1c1">=</span> <span style="color:#81a1c1;font-weight:bold">comptime</span> std<span style="color:#eceff4">.</span>fmt<span style="color:#eceff4">.</span>comptimePrint<span style="color:#eceff4">(</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#a3be8c">&#34;gl{s}&#34;</span><span style="color:#eceff4">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#eceff4">.{</span>declaration<span style="color:#eceff4">.</span>name<span style="color:#eceff4">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#eceff4">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1">@field</span><span style="color:#eceff4">(</span>gl<span style="color:#eceff4">,</span> declaration<span style="color:#eceff4">.</span>name<span style="color:#eceff4">)</span> <span style="color:#81a1c1">=</span> <span style="color:#81a1c1">@ptrCast</span><span style="color:#eceff4">(</span>
+</span></span><span style="display:flex;"><span>                platform<span style="color:#eceff4">.</span>gl_get_proc_address<span style="color:#eceff4">(</span>full_name<span style="color:#eceff4">)</span> <span style="color:#81a1c1;font-weight:bold">orelse</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#81a1c1;font-weight:bold">return</span> <span style="color:#81a1c1;font-weight:bold">error</span><span style="color:#eceff4">.</span>Function_Not_Found<span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#eceff4">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#eceff4">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">}</span>
+</span></span></code></pre></div><p><a href="https://ziglang.org">Zig</a> lets you inspect and manipulate types at compile time. This is Zig code that does exactly what I described above. Let&rsquo;s go through it line by line.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zig" data-lang="zig"><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">inline</span> <span style="color:#81a1c1;font-weight:bold">for</span> <span style="color:#eceff4">(</span><span style="color:#81a1c1">@typeInfo</span><span style="color:#eceff4">(</span>gl<span style="color:#eceff4">).</span><span style="color:#bf616a">@</span><span style="color:#a3be8c">&#34;struct&#34;</span><span style="color:#eceff4">.</span>decls<span style="color:#eceff4">)</span> <span style="color:#81a1c1">|</span>declaration<span style="color:#81a1c1">|</span> <span style="color:#eceff4">{</span>
+</span></span></code></pre></div><p>This loops through every declaration in the struct. The <code>inline for</code> unrolls the loop at compile time so that I can work with types inside it.</p>
+<p><a href="https://ziglang.org/documentation/0.16.0/#typeInfo"><code>@typeInfo</code></a> is a Zig <a href="https://ziglang.org/documentation/0.16.0/#Builtin-Functions">builtin function</a> that takes a type and returns a union containing information about the type. I am accessing its <code>@&quot;struct&quot;</code> field to get information about the struct, which has a <code>decls</code> field containing a list of declarations.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zig" data-lang="zig"><span style="display:flex;"><span><span style="color:#616e87;font-style:italic">// declaration.name gives me the name as a string
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span><span style="color:#81a1c1;font-weight:bold">const</span> info <span style="color:#81a1c1">=</span> <span style="color:#81a1c1">@typeInfo</span><span style="color:#eceff4">(</span><span style="color:#81a1c1">@TypeOf</span><span style="color:#eceff4">(</span><span style="color:#81a1c1">@field</span><span style="color:#eceff4">(</span>gl<span style="color:#eceff4">,</span> declaration<span style="color:#eceff4">.</span>name<span style="color:#eceff4">)));</span>
+</span></span></code></pre></div><p>For each declaration I need to get its type information. I can use the <a href="https://ziglang.org/documentation/0.16.0/#field"><code>@field</code></a> builtin to access the declaration by name. Then I can find its type with <a href="https://ziglang.org/documentation/0.16.0/#TypeOf"><code>@TypeOf</code></a> and use <code>@typeInfo</code> again to get the the union containing type information.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zig" data-lang="zig"><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">if</span> <span style="color:#eceff4">(</span>info <span style="color:#81a1c1">==</span> <span style="color:#eceff4">.</span>pointer <span style="color:#81a1c1;font-weight:bold">and</span> <span style="color:#81a1c1">@typeInfo</span><span style="color:#eceff4">(</span>info<span style="color:#eceff4">.</span>pointer<span style="color:#eceff4">.</span>child<span style="color:#eceff4">)</span> <span style="color:#81a1c1">==</span> <span style="color:#eceff4">.</span><span style="color:#bf616a">@</span><span style="color:#a3be8c">&#34;fn&#34;</span><span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span>
+</span></span></code></pre></div><p>Then I check declaration&rsquo;s type info union to see if its a pointer and if the type its pointing to is a function. I&rsquo;m using the <code>==</code> operator to check which field of a union is active[^3].</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zig" data-lang="zig"><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">const</span> full_name <span style="color:#81a1c1">=</span> <span style="color:#81a1c1;font-weight:bold">comptime</span> std<span style="color:#eceff4">.</span>fmt<span style="color:#eceff4">.</span>comptimePrint<span style="color:#eceff4">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a3be8c">&#34;gl{s}&#34;</span><span style="color:#eceff4">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">.{</span>declaration<span style="color:#eceff4">.</span>name<span style="color:#eceff4">},</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">);</span>
+</span></span></code></pre></div><p>Here I&rsquo;m formatting a string at compile time. I take the name of the declaration, lets say <code>&quot;Clear&quot;</code> for example, and attach <code>&quot;gl&quot;</code> to the front to make <code>&quot;glClear&quot;</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zig" data-lang="zig"><span style="display:flex;"><span><span style="color:#81a1c1">@field</span><span style="color:#eceff4">(</span>gl<span style="color:#eceff4">,</span> declaration<span style="color:#eceff4">.</span>name<span style="color:#eceff4">)</span> <span style="color:#81a1c1">=</span> <span style="color:#81a1c1">@ptrCast</span><span style="color:#eceff4">(</span>
+</span></span><span style="display:flex;"><span>    platform<span style="color:#eceff4">.</span>gl_get_proc_address<span style="color:#eceff4">(</span>full_name<span style="color:#eceff4">)</span> <span style="color:#81a1c1;font-weight:bold">orelse</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#81a1c1;font-weight:bold">return</span> <span style="color:#81a1c1;font-weight:bold">error</span><span style="color:#eceff4">.</span>Function_Not_Found<span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">},</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">);</span>
+</span></span></code></pre></div><p>This code passes the string to <code>gl_get_proc_address</code> which returns a <code>?*anyopaque</code> (equivalent to <code>void*</code> in C or <code>rawptr</code> in Odin). The <code>?</code> means that the type is nullable.</p>
+<p>To get a useable value, I can unwraped it with <code>orelse</code> giving me a <code>*anyopaque</code>. If the <code>?*anyopaque</code> was null during the unwrap we return an error.</p>
+<p>The <code>@ptrCast</code> takes the resulting <code>*anyopaque</code>  and casts it to the type of the declaration.</p>
+<p>I used <code>@field</code> earlier to access a value by name, but it can also be used to set a value. Here, I&rsquo;m using it to assign the function pointer to the decleration in <code>gl</code>.</p>
+<p>Now I can define more OpenGL functions and start using them.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zig" data-lang="zig"><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">pub</span> <span style="color:#81a1c1;font-weight:bold">const</span> gl <span style="color:#81a1c1">=</span> <span style="color:#81a1c1;font-weight:bold">struct</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1;font-weight:bold">pub</span> <span style="color:#81a1c1;font-weight:bold">var</span> ClearColor<span style="color:#81a1c1">:</span> <span style="color:#81a1c1">*</span><span style="color:#81a1c1;font-weight:bold">const</span> <span style="color:#81a1c1;font-weight:bold">fn</span> <span style="color:#616e87;font-style:italic">// omitted
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>    <span style="color:#81a1c1;font-weight:bold">pub</span> <span style="color:#81a1c1;font-weight:bold">var</span> Clear<span style="color:#81a1c1">:</span> <span style="color:#81a1c1">*</span><span style="color:#81a1c1;font-weight:bold">const</span> <span style="color:#81a1c1;font-weight:bold">fn</span>      <span style="color:#616e87;font-style:italic">// for
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>    <span style="color:#81a1c1;font-weight:bold">pub</span> <span style="color:#81a1c1;font-weight:bold">var</span> Viewport<span style="color:#81a1c1">:</span> <span style="color:#81a1c1">*</span><span style="color:#81a1c1;font-weight:bold">const</span> <span style="color:#81a1c1;font-weight:bold">fn</span>   <span style="color:#616e87;font-style:italic">// brevity
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1;font-weight:bold">pub</span> <span style="color:#81a1c1;font-weight:bold">const</span> COLOR_BUFFER_BIT <span style="color:#81a1c1">=</span> <span style="color:#b48ead">0x00004000</span><span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">};</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">pub</span> <span style="color:#81a1c1;font-weight:bold">fn</span> main<span style="color:#eceff4">()</span> <span style="color:#81a1c1">!</span><span style="color:#81a1c1">void</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#616e87;font-style:italic">// set up window and OpenGL context
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>    <span style="color:#81a1c1;font-weight:bold">try</span> load_all_functions<span style="color:#eceff4">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1;font-weight:bold">while</span> <span style="color:#eceff4">(</span>app_running<span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#616e87;font-style:italic">// poll events
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>        
+</span></span><span style="display:flex;"><span>        gl<span style="color:#eceff4">.</span>Viewport<span style="color:#eceff4">(</span><span style="color:#b48ead">0</span><span style="color:#eceff4">,</span> <span style="color:#b48ead">0</span><span style="color:#eceff4">,</span> window<span style="color:#eceff4">.</span>width<span style="color:#eceff4">,</span> window<span style="color:#eceff4">.</span>height<span style="color:#eceff4">);</span>
+</span></span><span style="display:flex;"><span>        gl<span style="color:#eceff4">.</span>ClearColor<span style="color:#eceff4">(</span><span style="color:#b48ead">0.39</span><span style="color:#eceff4">,</span> <span style="color:#b48ead">0.58</span><span style="color:#eceff4">,</span> <span style="color:#b48ead">0.92</span><span style="color:#eceff4">,</span> <span style="color:#b48ead">1.0</span><span style="color:#eceff4">);</span>
+</span></span><span style="display:flex;"><span>        gl<span style="color:#eceff4">.</span>Clear<span style="color:#eceff4">(</span>gl<span style="color:#eceff4">.</span>COLOR_BUFFER_BIT<span style="color:#eceff4">);</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#616e87;font-style:italic">// swap buffers
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>    <span style="color:#eceff4">}</span> 
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">}</span>
+</span></span></code></pre></div><h2 id="cool-and-awesome">Cool and Awesome</h2>
+<p>I only started writing in Zig a few days ago and that didn&rsquo;t stop me from picking up its metaprogramming features. Not because I have some sort of special ability to understand it, but because it&rsquo;s simple, well designed, and easy to use.</p>
+<p>I hope you give <a href="https://ziglang.org/">Zig</a> a try.</p>
+<blockquote>
+<p>This article has handwritten by me, if you notice any errors please direct them to <a href="mailto:novelalex29@outlook.com">my email</a>.</p></blockquote>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>I&rsquo;m oversimplifying to focus on the topic at hand. For the details see: <a href="https://wikis.khronos.org/opengl/Creating_an_OpenGL_Context_(WGL)">https://wikis.khronos.org/opengl/Creating_an_OpenGL_Context_(WGL)</a>.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>The extra steps: <a href="https://wikis.khronos.org/opengl/Load_OpenGL_Functions#Windows">https://wikis.khronos.org/opengl/Load_OpenGL_Functions#Windows</a>.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+  </main>
+  <footer>
+    
+
+<div>
+<p>© 2026 Novel Boby Alex</p>
+</div>
+
+
+
+
+<div class="social-links">
+    <a href="mailto:novelalex29@outlook.com" aria-label="E-Mail">
+        <img class="social-link" src="/social_logos/mail.svg" alt="E-Mail">
+    </a>
+<a href="https://www.linkedin.com/in/novel-alex/" aria-label="Linkedin">
+    <img class="social-link" src="/social_logos/linkedin.svg" alt="Linkedin">
+</a>
+</div>
+
+  </footer>
+</body>
+</html>

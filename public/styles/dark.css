@@ -1,0 +1,263 @@
+/*This may or may not be based on scott's stylesheet*/
+
+html {
+    scrollbar-gutter: stable;
+}
+
+body {
+    margin: 0;
+    background: #0b0b0b;
+    color: #e7e8eb;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header,
+footer,
+main {
+    width: min(40rem, calc(100% - 5rem));
+    margin-inline: auto;
+    text-align: left;
+    font-family: "Libertinus Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.03rem;
+    line-height: 1.5;
+}
+
+
+main {
+    flex: 1;
+}
+
+footer {
+    padding-top: 5em;
+    padding-bottom: 3em;
+    font-family: "Inter", sans-serif;
+    color: #999999;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a {
+    color: #33bfcc;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #3c9bc7;
+}
+
+a.site-title-link {
+    color: #e7e8eb;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a.site-title-link:hover {
+    color: #bbbbbb;
+}
+
+.navbar-list {
+    list-style-type: none;
+    padding-left: 0;
+    padding-top: 4rem;
+}
+
+.navbar-item {
+    display: inline-block;
+    padding-right: 0.5rem;
+}
+
+.navbar-link {
+    color: #999999;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+a.navbar-link:link {
+    color: #999999;
+}
+a.navbar-link:visited {
+    color: #999999;
+}
+a.navbar-link:hover {
+    text-decoration: underline;
+    color: #dddddd;
+}
+
+.site-title {
+    font-size: 1.5em;
+    font-family: "Special Gothic Expanded One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding-bottom: 1rem;
+}
+
+h1 {
+    font-size: 1.3em;
+    font-family: "Special Gothic Expanded One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h2 {
+    font-size: 1.1rem;
+    font-family: "Special Gothic Expanded One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+img.social-link {
+    width: 24px;
+    height: 24px;
+    filter: invert(0.6);
+    transition: filter 0.2s ease;
+}
+
+img.social-link:hover {
+    filter: invert(0.8);
+}
+
+.posts-list {
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    font-family: "Inter", sans-serif;
+    color: #999999;
+    font-size: 0.9rem;
+}
+
+.posts-list a {
+    color: #e7e8eb;
+}
+
+.posts-list a:hover {
+    color: #bbbbbb;
+}
+
+.posts-list:not(:last-child) {
+    border-bottom: 1px solid #444;
+    padding-bottom: 12px;
+}
+
+.posts-list + .posts-list {
+    padding-top: 12px;
+}
+
+.title-row {
+    justify-content: space-between;
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    font-family: "Inter", sans-serif;
+    font-size: 0.9rem;
+}
+
+.highlight {
+    overflow-x: auto;
+    max-width: 100%;
+    font-size: 0.9rem;
+    /*border: #ffffff;*/
+}
+
+.highlight pre {
+    overflow-x: auto;
+    border: 1px solid #777777;
+    border-radius: 1px;
+}
+
+p code {
+    color: #81a1c1;
+    font-size: 0.9rem;
+}
+
+.highlight > :first-child {
+    padding: 0.5rem;
+}
+
+hr {
+    display: block;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    color: #777777;
+    unicode-bidi: isolate;
+    overflow: hidden;
+    border: none;
+    border-top: 1px solid #777777;
+    border-color: #777777;
+}
+
+blockquote {
+    margin: 1.5rem 0;
+    padding: 0.5rem 1rem;
+    border-left: 3px solid #444444;
+    color: #999999;
+    font-style: italic;
+}
+
+blockquote p {
+    margin: 0;
+}
+
+blockquote a {
+    color: #33bfcc;
+}
+
+.libertinus-serif-regular {
+    font-family: "Libertinus Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.libertinus-serif-semibold {
+    font-family: "Libertinus Serif", serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.libertinus-serif-bold {
+    font-family: "Libertinus Serif", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.libertinus-serif-regular-italic {
+    font-family: "Libertinus Serif", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.libertinus-serif-semibold-italic {
+    font-family: "Libertinus Serif", serif;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.libertinus-serif-bold-italic {
+    font-family: "Libertinus Serif", serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.inter-fofont {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}

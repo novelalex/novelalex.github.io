@@ -1,0 +1,9 @@
+{{ $title := "" }}
+
+{{ if .LinkTitle }}
+  {{ $title = .LinkTitle }}
+{{ else if .Title }}
+  {{ $title = .Title }}
+{{ end }}
+
+{{ return $title }}

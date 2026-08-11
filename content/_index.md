@@ -1,49 +1,9 @@
 ---
-title: "novel's site"
+title: "Novel Boby Alex"
 ---
 
-<div class="fc">
-<div class="border-box" style="width: 16rem">
-  <p>Hi, I am Novel <span id="face">(つ b‿b つ)</span></p>
-</div>
+I am a programmer from Brampton, ON. I like working on computer graphics, game engines, and other high performance software. I also enjoy making music.
 
-<div class="border-box fi2">
+I've built a simple 3D rendering engine called [Internal Combustion Engine](https://github.com/novelalex/ICEngine), and a visual novel engine called [Ekun](https://github.com/novelalex/Ekun/). I have also built small tools like an [image viewer](https://github.com/novelalex/dppm) and a [sprite sheet builder](https://github.com/novelalex/quick-sprite-sheet). None of these things are close to production ready. 
 
-I am a video game programmer.
-
-</div>
-
-</div>
-
-<div class="fc">
-<div class="border-box">
-
-You can find me on:
-
-* [Twitter](https://twitter.com/NovelAlexicus)
-* [Github](https://github.com/novelalex)
-* [Linkdin](https://www.linkedin.com/in/novel-alex/)
-
-</div>
-
-<div class="border-box fi2">
-
-Check out my [blog]({{<ref "blog">}}) while you're here. <br> 
-Or look at some of my [projects]({{<ref "projects">}}). <br> 
-Also here's a list of [quotes, books, and articles]({{<ref "other/list_of_really_good_quotes">}}) I like.
-</div>
-</div>
-
-
-
-
-<script>
-  const faceElement = document.getElementById('face');
-  const faces = ["(つ b‿b つ)", "(つ –‿– つ)"];
-  let index = 0;
-
-  setInterval(() => {
-    index = 1 - index; // toggle between 0 and 1
-    faceElement.textContent = faces[index];
-  }, 2000);
-</script>
+Currently I'm working on a spreadsheet application and programming lanuage that go hand in hand. I'm also looking for work, so if you are interested in hiring me despite everything you've just read, my contact information is linked below.
