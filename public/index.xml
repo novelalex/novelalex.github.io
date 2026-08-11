@@ -6,14 +6,6 @@
     <description>Recent content on Novel Boby Alex</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 11 Aug 2026 05:14:41 -0400</lastBuildDate>
     <atom:link href="https://novelalex.com/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Loading OpenGL Functions From Scratch With Zig Comptime</title>
-      <link>https://novelalex.com/posts/opengl_from_scratch_zig/</link>
-      <pubDate>Tue, 11 Aug 2026 05:14:41 -0400</pubDate>
-      <guid>https://novelalex.com/posts/opengl_from_scratch_zig/</guid>
-      <description>&lt;p&gt;Zig metaprogramming is cool and awesome.&lt;/p&gt;&#xA;&lt;p&gt;It&amp;rsquo;s also useful.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;&#xA;&lt;p&gt;I&amp;rsquo;m building a desktop application from scratch and I want to do hardware rendering with OpenGL.&lt;/p&gt;&#xA;&lt;p&gt;OpenGL is not a typical library. It can&amp;rsquo;t be statically linked, nor can it be shipped as a dynamic library. OpenGL is an API specification that different vendors provide an implementation for.&lt;/p&gt;&#xA;&lt;p&gt;To actually call OpenGL functions, they have to be loaded at runtime. There are libraries like &lt;a href=&#34;https://glew.sourceforge.net/&#34;&gt;GLEW&lt;/a&gt; or &lt;a href=&#34;https://github.com/Dav1dde/glad&#34;&gt;GLAD&lt;/a&gt; that can do this automatically, but I&amp;rsquo;m not using them because I&amp;rsquo;m trying to keep dependecies as low as possible.&lt;/p&gt;</description>
-    </item>
   </channel>
 </rss>
