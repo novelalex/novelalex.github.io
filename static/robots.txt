@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://novelalex.com/sitemap.xml
