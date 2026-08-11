@@ -16,7 +16,7 @@ body {
 header,
 footer,
 main {
-    width: min(40rem, calc(100% - 5rem));
+    width: min(40rem, calc(100% - 2rem));
     margin-inline: auto;
     text-align: left;
     font-family: "Libertinus Serif", serif;
@@ -136,13 +136,15 @@ img.social-link:hover {
     display: flex;
     gap: 12px;
     align-items: baseline;
-    font-family: "Inter", sans-serif;
+    font-family: "Special Gothic Expanded One", sans-serif;
     color: #999999;
     font-size: 0.9rem;
 }
 
 .posts-list a {
+    font-size: 1.1rem;
     color: #e7e8eb;
+    text-decoration: none;
 }
 
 .posts-list a:hover {
@@ -160,11 +162,17 @@ img.social-link:hover {
 
 .title-row {
     justify-content: space-between;
-    display: flex;
+    display: block;
     gap: 12px;
     align-items: baseline;
-    font-family: "Inter", sans-serif;
     font-size: 0.9rem;
+
+}
+
+.title-row span{
+    font-family: "Special Gothic Expanded One", sans-serif;
+    font-size: 0.9rem;
+    color: #999999;
 }
 
 .highlight {
