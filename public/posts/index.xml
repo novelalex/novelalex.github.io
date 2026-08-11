@@ -9,7 +9,7 @@
     <lastBuildDate>Tue, 11 Aug 2026 05:14:41 -0400</lastBuildDate>
     <atom:link href="https://novelalex.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Loading OpenGL functions from scratch with Zig</title>
+      <title>Loading OpenGL Functions From Scratch With Zig Comptime</title>
       <link>https://novelalex.com/posts/opengl_from_scratch_zig/</link>
       <pubDate>Tue, 11 Aug 2026 05:14:41 -0400</pubDate>
       <guid>https://novelalex.com/posts/opengl_from_scratch_zig/</guid>

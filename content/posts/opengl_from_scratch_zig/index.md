@@ -1,7 +1,7 @@
 +++
 date = '2026-08-11T05:14:41-04:00'
 draft = false
-title = 'Loading OpenGL functions from scratch with Zig'
+title = 'Loading OpenGL Functions From Scratch With Zig Comptime'
 +++
 
 Zig metaprogramming is cool and awesome.
