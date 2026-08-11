@@ -14,7 +14,7 @@ I'm building a desktop application from scratch and I want to do hardware render
 
 OpenGL is not a typical library. It can't be statically linked, nor can it be shipped as a dynamic library. OpenGL is an API specification that different vendors provide an implementation for. 
 
-To actually call OpenGL functions, they have to be loaded at runtime. There are libraries like [GLEW](https://glew.sourceforge.net/) or [GLAD](https://github.com/Dav1dde/glad) that can do this automatically, but I'm not using them because I'm trying to keep dependecies as low as possible.
+To actually call OpenGL functions, they have to be loaded at runtime. There are libraries like [GLEW](https://glew.sourceforge.net/) or [GLAD](https://github.com/Dav1dde/glad) that can do this automatically, but I'm not using them because I'm trying to keep dependencies as low as possible.
 
 To load an OpenGL function manually on Windows I can call `wglGetProcAddress`[^1] with the name of the function and it will return a pointer to the function. I just have to write the declaration for each function pointer and then load them at runtime.
 
@@ -117,7 +117,7 @@ To get a useable value, I can unwraped it with `orelse` giving me a `*anyopaque`
 
 The `@ptrCast` takes the resulting `*anyopaque`  and casts it to the type of the declaration. 
 
-I used `@field` earlier to access a value by name, but it can also be used to set a value. I'm using it to assign the function pointer to the decleration in the `gl` struct. 
+I used `@field` earlier to access a value by name, but it can also be used to set a value. I'm using it to assign the function pointer to the declaration in the `gl` struct. 
 
 Now I can define more OpenGL functions and start using them.
 
