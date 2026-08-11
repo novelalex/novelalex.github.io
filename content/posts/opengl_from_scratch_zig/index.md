@@ -92,7 +92,7 @@ For each declaration I need to get its type information. I can use the [`@field`
 if (info == .pointer and @typeInfo(info.pointer.child) == .@"fn") {
 ```
 
-Then I check declaration's type info union to see if its a pointer and if the type its pointing to is a function. I'm using the `==` operator to check which field of a union is active[^3]. 
+Then I check declaration's type info union to see if its a pointer and if the type its pointing to is a function. I'm using the `==` operator to check which field of a union is active. 
 
 ```zig
 const full_name = comptime std.fmt.comptimePrint(
