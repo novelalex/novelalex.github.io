@@ -1,10 +1,8 @@
 +++
 date = '2026-08-11T05:14:41-04:00'
 draft = false
-title = 'Loading OpenGL Functions From Scratch With Zig Comptime'
+title = "Zig's Compile Time Metaprogramming is Cool and Awesome."
 +++
-
-Zig metaprogramming is cool and awesome.
 
 It's also useful.
 
@@ -70,7 +68,11 @@ fn load_all_functions() !void {
 }
 ```
 
-[Zig](https://ziglang.org) lets you inspect and manipulate types at compile time. This is Zig code that does exactly what I described above. Let's go through it line by line.
+ This is Zig code that does exactly what I described above.
+
+[Zig](https://ziglang.org) lets you inspect and manipulate types at compile time. Because Zig's reflection is limited to compile time execution, there are no runtime costs for using it.
+
+Let's go through the code line by line.
 
 ```zig
 inline for (@typeInfo(gl).@"struct".decls) |declaration| {
@@ -113,13 +115,13 @@ I'm formatting a string at compile time. I take the name of the declaration, let
 ```
 This code passes the string to `gl_get_proc_address` which returns a `?*anyopaque` (equivalent to `void*` in C or `rawptr` in Odin). The `?` means that the type is nullable. 
 
-To get a useable value, I can unwraped it with `orelse` giving me a `*anyopaque`. If the `?*anyopaque` was null during the unwrap we return an error. 
+To get a useable value, I can unwrapped it with `orelse` giving me a `*anyopaque`. If the `?*anyopaque` was null during the unwrap we return an error. 
 
 The `@ptrCast` takes the resulting `*anyopaque`  and casts it to the type of the declaration. 
 
-I used `@field` earlier to access a value by name, but it can also be used to set a value. I'm using it to assign the function pointer to the declaration in the `gl` struct. 
+I used `@field` earlier to access a value by name, but it can also be used to set the value. I'm using it to assign the function pointer to the declaration in the `gl` struct. 
 
-Now I can define more OpenGL functions and start using them.
+That's it. Now I can define more OpenGL functions and start using them.
 
 ``` zig
 pub const gl = struct {
@@ -146,9 +148,14 @@ pub fn main() !void {
 ```
 
 ## Cool and Awesome
-I only started writing in Zig a few days ago and that didn't stop me from picking up its metaprogramming features. Not because I have some sort of special ability to understand it, but because it's simple, well designed, and easy to use.
+
+You can see that Zig doesn't have an arcane macro syntax, You just write regular Zig code that runs at compile time.
+
+I only started programming in Zig a few days ago and that didn't stop me from picking up its metaprogramming features. Not because I have some sort of special ability to understand it, but because it's simple, well designed, and easy to use.
 
 I hope you give [Zig](https://ziglang.org/) a try.
+
+> I did something simple here but you can go ham with this. For example, you could generate the `gl` struct at compile time using the [`@Struct`](https://ziglang.org/documentation/0.16.0/#Struct) builtin.
 
 > This article was handwritten by me, if you notice any errors please direct them to [my email](mailto:novelalex29@outlook.com).
 

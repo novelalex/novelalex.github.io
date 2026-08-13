@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Zig&#39;s Compile Time Metaprogramming is Cool and Awesome.&nbsp;-&nbsp;Novel Boby Alex</title>
 
-<link rel="stylesheet" href="http://localhost:1313/styles/dark.css">
+<link rel="stylesheet" href="https://novelalex.com/styles/dark.css">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,8 +34,8 @@
   <main class = "content">
     
     <div class="title-row">
-          <span>Aug 11, 2026</span>
           <h1>Zig&#39;s Compile Time Metaprogramming is Cool and Awesome.</h1>
+          <span>Aug 11, 2026</span>
     </div>
 
   <p>It&rsquo;s also useful.</p>
@@ -86,7 +86,9 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#eceff4">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#eceff4">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#eceff4">}</span>
-</span></span></code></pre></div><p><a href="https://ziglang.org">Zig</a> lets you inspect and manipulate types at compile time. This is Zig code that does exactly what I described above. Let&rsquo;s go through it line by line.</p>
+</span></span></code></pre></div><p>This is Zig code that does exactly what I described above.</p>
+<p><a href="https://ziglang.org">Zig</a> lets you inspect and manipulate types at compile time. Because Zig&rsquo;s reflection is limited to compile time execution, there are no runtime costs for using it.</p>
+<p>Let&rsquo;s go through the code line by line.</p>
 <div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zig" data-lang="zig"><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">inline</span> <span style="color:#81a1c1;font-weight:bold">for</span> <span style="color:#eceff4">(</span><span style="color:#81a1c1">@typeInfo</span><span style="color:#eceff4">(</span>gl<span style="color:#eceff4">).</span><span style="color:#bf616a">@</span><span style="color:#a3be8c">&#34;struct&#34;</span><span style="color:#eceff4">.</span>decls<span style="color:#eceff4">)</span> <span style="color:#81a1c1">|</span>declaration<span style="color:#81a1c1">|</span> <span style="color:#eceff4">{</span>
 </span></span></code></pre></div><p>This loops through every declaration in the struct. The <code>inline for</code> unrolls the loop at compile time so that I can work with types inside it.</p>
 <p><a href="https://ziglang.org/documentation/0.16.0/#typeInfo"><code>@typeInfo</code></a> is a Zig <a href="https://ziglang.org/documentation/0.16.0/#Builtin-Functions">builtin function</a> that takes a type and returns a union containing information about the type. I am accessing its <code>@&quot;struct&quot;</code> field to get information about the struct, which has a <code>decls</code> field containing a list of declarations.</p>
@@ -106,9 +108,9 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#eceff4">},</span>
 </span></span><span style="display:flex;"><span><span style="color:#eceff4">);</span>
 </span></span></code></pre></div><p>This code passes the string to <code>gl_get_proc_address</code> which returns a <code>?*anyopaque</code> (equivalent to <code>void*</code> in C or <code>rawptr</code> in Odin). The <code>?</code> means that the type is nullable.</p>
-<p>To get a useable value, I can unwraped it with <code>orelse</code> giving me a <code>*anyopaque</code>. If the <code>?*anyopaque</code> was null during the unwrap we return an error.</p>
+<p>To get a useable value, I can unwrapped it with <code>orelse</code> giving me a <code>*anyopaque</code>. If the <code>?*anyopaque</code> was null during the unwrap we return an error.</p>
 <p>The <code>@ptrCast</code> takes the resulting <code>*anyopaque</code>  and casts it to the type of the declaration.</p>
-<p>I used <code>@field</code> earlier to access a value by name, but it can also be used to set a value. I&rsquo;m using it to assign the function pointer to the declaration in the <code>gl</code> struct.</p>
+<p>I used <code>@field</code> earlier to access a value by name, but it can also be used to set the value. I&rsquo;m using it to assign the function pointer to the declaration in the <code>gl</code> struct.</p>
 <p>That&rsquo;s it. Now I can define more OpenGL functions and start using them.</p>
 <div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zig" data-lang="zig"><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">pub</span> <span style="color:#81a1c1;font-weight:bold">const</span> gl <span style="color:#81a1c1">=</span> <span style="color:#81a1c1;font-weight:bold">struct</span> <span style="color:#eceff4">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#81a1c1;font-weight:bold">pub</span> <span style="color:#81a1c1;font-weight:bold">var</span> ClearColor<span style="color:#81a1c1">:</span> <span style="color:#81a1c1">*</span><span style="color:#81a1c1;font-weight:bold">const</span> <span style="color:#81a1c1;font-weight:bold">fn</span> <span style="color:#616e87;font-style:italic">// omitted
@@ -132,8 +134,11 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>    <span style="color:#eceff4">}</span> 
 </span></span><span style="display:flex;"><span><span style="color:#eceff4">}</span>
 </span></span></code></pre></div><h2 id="cool-and-awesome">Cool and Awesome</h2>
-<p>I only started writing in Zig a few days ago and that didn&rsquo;t stop me from picking up its metaprogramming features. Not because I have some sort of special ability to understand it, but because it&rsquo;s simple, well designed, and easy to use.</p>
+<p>You can see that Zig doesn&rsquo;t have an arcane macro syntax, You just write regular Zig code that runs at compile time.</p>
+<p>I only started programming in Zig a few days ago and that didn&rsquo;t stop me from picking up its metaprogramming features. Not because I have some sort of special ability to understand it, but because it&rsquo;s simple, well designed, and easy to use.</p>
 <p>I hope you give <a href="https://ziglang.org/">Zig</a> a try.</p>
+<blockquote>
+<p>I did something simple here but you can go ham with this. For example, you could generate the <code>gl</code> struct at compile time using the <a href="https://ziglang.org/documentation/0.16.0/#Struct"><code>@Struct</code></a> builtin.</p></blockquote>
 <blockquote>
 <p>This article was handwritten by me, if you notice any errors please direct them to <a href="mailto:novelalex29@outlook.com">my email</a>.</p></blockquote>
 <div class="footnotes" role="doc-endnotes">
