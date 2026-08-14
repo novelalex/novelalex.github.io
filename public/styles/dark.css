@@ -196,8 +196,13 @@ img.social-link:hover {
 
 .highlight pre {
     overflow-x: auto;
-    border: 1px solid #777777;
+    /*border: 1px solid #777777;*/
     border-radius: 1px;
+}
+
+.highlight pre,
+.highlight code {
+    background-color: #111111 !important;
 }
 
 p code {
@@ -206,7 +211,7 @@ p code {
 }
 
 .highlight > :first-child {
-    padding: 0.5rem;
+    padding: 1rem;
 }
 
 hr {
@@ -226,7 +231,7 @@ hr {
 blockquote {
     margin: 1.5rem 0;
     padding: 0.5rem 1rem;
-    border-left: 3px solid #444444;
+    /*border-left: 3px solid #444444;*/
     color: #999999;
     font-style: italic;
 }
