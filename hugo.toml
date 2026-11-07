@@ -22,4 +22,4 @@ title = 'Novel Boby Alex'
         unsafe = true
 
     [markup.highlight]
-        style = "nord"
+        codeFences = false

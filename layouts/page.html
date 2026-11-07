@@ -1,7 +1,10 @@
 {{ define "main" }}
     <div class="title-row">
           <h1>{{ .Title }}</h1>
-          <span>{{.Date | time.Format ":date_medium"}}</span>
+          <div>
+            {{ with .Params.author }}<div>{{ . }}</div>{{ end }}
+            <span>{{.Date | time.Format ":date_medium"}}</span>
+          </div>
     </div>
 
   {{ .Content }}

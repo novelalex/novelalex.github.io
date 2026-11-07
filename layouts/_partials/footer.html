@@ -1,17 +1,17 @@
 
 
 <div>
-<p>© 2026 Novel Boby Alex</p>
+<hr>
 </div>
 
-{{ $mail_icon := resources.Get "social_logos/mail.svg" }}
-{{ $linkedin_icon := resources.Get "social_logos/linkedin.svg" }}
-
-<div class="social-links">
-    <a href="mailto:novelalex29@outlook.com" aria-label="E-Mail">
-        <img class="social-link" src="{{ $mail_icon.RelPermalink }}" alt="E-Mail">
-    </a>
-<a href="https://www.linkedin.com/in/novel-alex/" aria-label="Linkedin">
-    <img class="social-link" src="{{ $linkedin_icon.RelPermalink }}" alt="Linkedin">
-</a>
+<div class="footer-links">
+  <div class="footer-left">
+    {{ range .Site.Menus.main }}
+      <a href="{{ .URL }}">{{ .Name }}</a>
+    {{ end }}
+  </div>
+  <div class="footer-right">
+    <a href="mailto:novelalex29@outlook.com">email</a>
+    <a href="https://www.linkedin.com/in/novel-alex/">linkedin</a>
+  </div>
 </div>
