@@ -1,7 +1,7 @@
 +++
 date = '2026-08-11T05:14:41-04:00'
 draft = false
-title = "Zig's Compile Time Metaprogramming is Cool and Awesome."
+title = "Zig's Compile Time Metaprogramming is Cool and Awesome"
 author = "Novel Alex"
 +++
 

@@ -14,7 +14,7 @@
 		
 			<atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title>Zig&#39;s Compile Time Metaprogramming is Cool and Awesome.</title>
+				<title>Zig&#39;s Compile Time Metaprogramming is Cool and Awesome</title>
 				<link>http://localhost:1313/posts/zig_comptime_is_cool_and_awesome/</link>
 				<pubDate>Tue, 11 Aug 2026 05:14:41 -0400</pubDate>
 				<guid>http://localhost:1313/posts/zig_comptime_is_cool_and_awesome/</guid>
