@@ -1,6 +1,6 @@
 baseURL = 'https://novelalex.com/'
 languageCode = 'en-us'
-title = 'Novel Boby Alex'
+title = 'Novel Alex'
 
 [menus]
   [[menus.main]]
