@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="">
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Zig&#39;s Compile Time Metaprogramming is Cool and Awesome.&nbsp;-&nbsp;Novel Alex</title>
 
-<link rel="stylesheet" href="https://novelalex.com/styles/dark.css">
+<link rel="stylesheet" href="http://localhost:1313/styles/dark.css">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,8 +27,8 @@
 
   <h2 id="the-problem">The Problem</h2>
 <p>I&rsquo;m building a desktop application from scratch and I want to do hardware rendering with OpenGL.</p>
-<p>OpenGL is not a typical library. It can&rsquo;t be statically linked, nor can it be shipped as a dynamic library. OpenGL is an API specification that different vendors provide an implementation for.</p>
-<p>To actually call OpenGL functions, they have to be loaded at runtime. There are libraries like <a href="https://glew.sourceforge.net/">GLEW</a> or <a href="https://github.com/Dav1dde/glad">GLAD</a> that can do this automatically, but I&rsquo;m not using them because I&rsquo;m trying to keep dependencies as low as possible.</p>
+<p>OpenGL is not a typical library. It can&rsquo;t be statically linked, nor can it be shipped as a dynamic library. OpenGL is an API specification that different vendors provide an implementation for.
+To actually call OpenGL functions, they have to be loaded at runtime. There are libraries like <a href="https://glew.sourceforge.net/">GLEW</a> or <a href="https://github.com/Dav1dde/glad">GLAD</a> that can do this automatically, but I&rsquo;m not using them because I&rsquo;m trying to keep dependencies as low as possible.</p>
 <p>To load an OpenGL function manually on Windows I can call <code>wglGetProcAddress</code><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> with the name of the function and it will return a pointer to the function. I just have to write the declaration for each function pointer and then load them at runtime.</p>
 <pre><code class="language-zig">// This will store the function pointer.
 pub var Clear: *const fn (mask: u32) callconv(.c) void = undefined;
@@ -46,8 +46,7 @@ pub fn load_functions() !void {
 <blockquote>
 <p>The <code>platform.gl_get_proc_address</code> function wraps the call to <code>wglGetProcAddress</code> with some extra steps<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
 </blockquote>
-<p>But that&rsquo;s a lot of typing. Won&rsquo;t be cool and awesome if I could loop through every declaration in a struct, check if it&rsquo;s a function pointer, turn the name of the declaration into a string, attach <code>gl</code> in front of it, and pass it into <code>gl_get_proc_address</code>.</p>
-<p>Not something you can do without complicated macros or code generation, right?</p>
+<p>But that&rsquo;s a lot of typing. Won&rsquo;t be cool and awesome if I could loop through every declaration in a struct, check if it&rsquo;s a function pointer, turn the name of the declaration into a string, attach <code>gl</code> in front of it, and pass it into <code>gl_get_proc_address</code>. Not something you can do without complicated macros or code generation, right?</p>
 <h2 id="the-solution">The Solution</h2>
 <p>See if you can understand the following code:</p>
 <pre><code class="language-zig">pub const gl = struct {
@@ -80,8 +79,7 @@ fn load_all_functions() !void {
 <p>Let&rsquo;s go through the code line by line.</p>
 <pre><code class="language-zig">inline for (@typeInfo(gl).@&quot;struct&quot;.decls) |declaration| {
 </code></pre>
-<p>This loops through every declaration in the struct. The <code>inline for</code> unrolls the loop at compile time so that I can work with types inside it.</p>
-<p><a href="https://ziglang.org/documentation/0.16.0/#typeInfo"><code>@typeInfo</code></a> is a Zig <a href="https://ziglang.org/documentation/0.16.0/#Builtin-Functions">builtin function</a> that takes a type and returns a union containing information about the type. I am accessing its <code>@&quot;struct&quot;</code> field to get information about the struct, which has a <code>decls</code> field containing a list of declarations.</p>
+<p>This loops through every declaration in the struct. The <code>inline for</code> unrolls the loop at compile time so that I can work with types inside it. <a href="https://ziglang.org/documentation/0.16.0/#typeInfo"><code>@typeInfo</code></a> is a Zig <a href="https://ziglang.org/documentation/0.16.0/#Builtin-Functions">builtin function</a> that takes a type and returns a union containing information about the type. I am accessing its <code>@&quot;struct&quot;</code> field to get information about the struct, which has a <code>decls</code> field containing a list of declarations.</p>
 <pre><code class="language-zig">// declaration.name gives me the name as a string
 const info = @typeInfo(@TypeOf(@field(gl, declaration.name)));
 </code></pre>
@@ -101,10 +99,10 @@ const info = @typeInfo(@TypeOf(@field(gl, declaration.name)));
     },
 );
 </code></pre>
-<p>This code passes the string to <code>gl_get_proc_address</code> which returns a <code>?*anyopaque</code> (equivalent to <code>void*</code> in C or <code>rawptr</code> in Odin). The <code>?</code> means that the type is nullable.</p>
-<p>To get a useable value, I can unwrapped it with <code>orelse</code> giving me a <code>*anyopaque</code>. If the <code>?*anyopaque</code> was null during the unwrap we return an error.</p>
-<p>The <code>@ptrCast</code> takes the resulting <code>*anyopaque</code>  and casts it to the type of the declaration.</p>
-<p>I used <code>@field</code> earlier to access a value by name, but it can also be used to set the value. I&rsquo;m using it to assign the function pointer to the declaration in the <code>gl</code> struct.</p>
+<p>This code passes the string to <code>gl_get_proc_address</code> which returns a <code>?*anyopaque</code> (equivalent to <code>void*</code> in C or <code>rawptr</code> in Odin). The <code>?</code> means that the type is nullable.
+To get a useable value, I can unwrapped it with <code>orelse</code> giving me a <code>*anyopaque</code>. If the <code>?*anyopaque</code> was null during the unwrap we return an error.
+The <code>@ptrCast</code> takes the resulting <code>*anyopaque</code>  and casts it to the type of the declaration.
+I used <code>@field</code> earlier to access a value by name, but it can also be used to set the value. I&rsquo;m using it to assign the function pointer to the declaration in the <code>gl</code> struct.</p>
 <p>That&rsquo;s it. Now I can define more OpenGL functions and start using them.</p>
 <pre><code class="language-zig">pub const gl = struct {
     pub var ClearColor: *const fn // omitted
@@ -129,15 +127,11 @@ pub fn main() !void {
 }
 </code></pre>
 <h2 id="cool-and-awesome">Cool and Awesome</h2>
-<p>You can see that Zig doesn&rsquo;t have an arcane macro syntax, You just write regular Zig code that runs at compile time.</p>
-<p>I only started programming in Zig a few days ago and that didn&rsquo;t stop me from picking up its metaprogramming features. Not because I have some sort of special ability to understand it, but because it&rsquo;s simple, well designed, and easy to use.</p>
-<p>I hope you give <a href="https://ziglang.org/">Zig</a> a try.</p>
-<blockquote>
+<p>You can see that Zig doesn&rsquo;t have an arcane macro syntax, You just write regular Zig code that runs at compile time.
+I am new to Zig and that didn&rsquo;t stop me from picking up its metaprogramming features. It&rsquo;s simple, well designed, and easy to use.
+I hope you give <a href="https://ziglang.org/">Zig</a> a try.</p>
 <p>I did something simple here but you can go ham with this. For example, you could generate the <code>gl</code> struct at compile time using the <a href="https://ziglang.org/documentation/0.16.0/#Struct"><code>@Struct</code></a> builtin.</p>
-</blockquote>
-<blockquote>
-<p>This article was handwritten by me, if you notice any errors please direct them to <a href="mailto:novelalex29@outlook.com">my email</a>.</p>
-</blockquote>
+<p>This article was handwritten by me, if you notice any errors please direct them to my email which can be found on my <a href="https://novelalex.com">home page</a>.</p>
 <div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -162,7 +156,7 @@ pub fn main() !void {
 <div class="footer-links">
   <div class="footer-left">
     
-      <a href="/">about</a>
+      <a href="/">home</a>
     
       <a href="/posts/">posts</a>
     

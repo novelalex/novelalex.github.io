@@ -10,7 +10,6 @@ author = "Novel Alex"
 I'm building a desktop application from scratch and I want to do hardware rendering with OpenGL.
 
 OpenGL is not a typical library. It can't be statically linked, nor can it be shipped as a dynamic library. OpenGL is an API specification that different vendors provide an implementation for. 
-
 To actually call OpenGL functions, they have to be loaded at runtime. There are libraries like [GLEW](https://glew.sourceforge.net/) or [GLAD](https://github.com/Dav1dde/glad) that can do this automatically, but I'm not using them because I'm trying to keep dependencies as low as possible.
 
 To load an OpenGL function manually on Windows I can call `wglGetProcAddress`[^1] with the name of the function and it will return a pointer to the function. I just have to write the declaration for each function pointer and then load them at runtime.
@@ -32,9 +31,7 @@ pub fn load_functions() !void {
 
  > The `platform.gl_get_proc_address` function wraps the call to `wglGetProcAddress` with some extra steps[^2].
 
-But that's a lot of typing. Won't be cool and awesome if I could loop through every declaration in a struct, check if it's a function pointer, turn the name of the declaration into a string, attach `gl` in front of it, and pass it into `gl_get_proc_address`. 
-
-Not something you can do without complicated macros or code generation, right?
+But that's a lot of typing. Won't be cool and awesome if I could loop through every declaration in a struct, check if it's a function pointer, turn the name of the declaration into a string, attach `gl` in front of it, and pass it into `gl_get_proc_address`. Not something you can do without complicated macros or code generation, right?
 
 ## The Solution
 
@@ -77,9 +74,7 @@ Let's go through the code line by line.
 inline for (@typeInfo(gl).@"struct".decls) |declaration| {
 ```
 
-This loops through every declaration in the struct. The `inline for` unrolls the loop at compile time so that I can work with types inside it. 
-
-[`@typeInfo`](https://ziglang.org/documentation/0.16.0/#typeInfo) is a Zig [builtin function](https://ziglang.org/documentation/0.16.0/#Builtin-Functions) that takes a type and returns a union containing information about the type. I am accessing its `@"struct"` field to get information about the struct, which has a `decls` field containing a list of declarations.
+This loops through every declaration in the struct. The `inline for` unrolls the loop at compile time so that I can work with types inside it. [`@typeInfo`](https://ziglang.org/documentation/0.16.0/#typeInfo) is a Zig [builtin function](https://ziglang.org/documentation/0.16.0/#Builtin-Functions) that takes a type and returns a union containing information about the type. I am accessing its `@"struct"` field to get information about the struct, which has a `decls` field containing a list of declarations.
 
 ```zig
 // declaration.name gives me the name as a string
@@ -113,11 +108,8 @@ I'm formatting a string at compile time. I take the name of the declaration, let
 );
 ```
 This code passes the string to `gl_get_proc_address` which returns a `?*anyopaque` (equivalent to `void*` in C or `rawptr` in Odin). The `?` means that the type is nullable. 
-
 To get a useable value, I can unwrapped it with `orelse` giving me a `*anyopaque`. If the `?*anyopaque` was null during the unwrap we return an error. 
-
 The `@ptrCast` takes the resulting `*anyopaque`  and casts it to the type of the declaration. 
-
 I used `@field` earlier to access a value by name, but it can also be used to set the value. I'm using it to assign the function pointer to the declaration in the `gl` struct. 
 
 That's it. Now I can define more OpenGL functions and start using them.
@@ -149,14 +141,13 @@ pub fn main() !void {
 ## Cool and Awesome
 
 You can see that Zig doesn't have an arcane macro syntax, You just write regular Zig code that runs at compile time.
-
-I only started programming in Zig a few days ago and that didn't stop me from picking up its metaprogramming features. Not because I have some sort of special ability to understand it, but because it's simple, well designed, and easy to use.
-
+I am new to Zig and that didn't stop me from picking up its metaprogramming features. It's simple, well designed, and easy to use.
 I hope you give [Zig](https://ziglang.org/) a try.
 
-> I did something simple here but you can go ham with this. For example, you could generate the `gl` struct at compile time using the [`@Struct`](https://ziglang.org/documentation/0.16.0/#Struct) builtin.
 
-> This article was handwritten by me, if you notice any errors please direct them to [my email](mailto:novelalex29@outlook.com).
+I did something simple here but you can go ham with this. For example, you could generate the `gl` struct at compile time using the [`@Struct`](https://ziglang.org/documentation/0.16.0/#Struct) builtin.
+
+This article was handwritten by me, if you notice any errors please direct them to my email which can be found on my [home page](https://novelalex.com).
 
 [^1]: I'm oversimplifying to focus on the topic at hand. For the details see: <https://wikis.khronos.org/opengl/Creating_an_OpenGL_Context_(WGL)>.
 
