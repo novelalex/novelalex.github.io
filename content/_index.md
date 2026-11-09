@@ -8,7 +8,12 @@ I've built a simple 3D rendering engine called [Internal Combustion Engine](http
 
 Currently I'm working on a simple VN/RPG Engine and working on [smaller projects](https://www.youtube.com/@novelcc) for fun. I'm also looking for work, so if you are interested in hiring me despite everything you've just read, my contact information is linked below.
 
-### Contact Information:
-- email: novelalex29 [at] outlook [dot] com
-- [linkedin/novel-alex](https://www.linkedin.com/in/novel-alex/)
-  
+#### Contact Information:
+<div style="font-size: 0.9rem;">
+
+- Email: [novelalex29 [at] outlook [dot] com](#)
+- Linkedin: [linkedin.com/in/novel-alex](https://www.linkedin.com/in/novel-alex/)
+- Twitter/X: [@nvlicus](https://x.com/nvlicus)
+- Youtube: [@novelcc](https://www.youtube.com/@novelcc)
+
+</div>
